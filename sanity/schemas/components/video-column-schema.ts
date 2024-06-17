@@ -8,7 +8,7 @@ const videoColumn = defineType({
     defineField({
       title: "Video",
       name: "video",
-      type: "video",
+      type: "defaultVideo",
     }),
   ],
   preview: {

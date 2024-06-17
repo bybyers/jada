@@ -42,6 +42,7 @@ const schemas = [
   qaBlock,
   ctaBlock,
   videoBlock,
+  videoColumn,
 
   // objects
   defaultImage,
