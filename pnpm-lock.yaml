@@ -14,6 +14,9 @@ dependencies:
   '@sanity/ui':
     specifier: ^2.3.6
     version: 2.3.6(react-dom@18.3.1)(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.11)
+  '@sanity/util':
+    specifier: ^3.46.1
+    version: 3.46.1
   '@sanity/vision':
     specifier: '3'
     version: 3.46.1(@babel/runtime@7.24.7)(@codemirror/lint@6.8.0)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.2.1)(codemirror@6.0.1)(react-dom@18.3.1)(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.11)
@@ -56,6 +59,9 @@ dependencies:
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.4.4)
+  types:
+    specifier: ^0.1.1
+    version: 0.1.1
 
 devDependencies:
   '@types/node':
@@ -2970,6 +2976,19 @@ packages:
     dependencies:
       '@sanity/client': 6.20.0(debug@4.3.5)
       '@sanity/types': 3.37.2(debug@4.3.5)
+      get-random-values-esm: 1.0.2
+      moment: 2.30.1
+      rxjs: 7.8.1
+    transitivePeerDependencies:
+      - debug
+    dev: false
+
+  /@sanity/util@3.46.1:
+    resolution: {integrity: sha512-Ef0LB8cePz/iGl+zprHmQFy/rwBFF5UPkh5txxX6pp/EstRsj0Bu9hls6RlKd1rzKzTHgzdQFb1WYnaH6qIlnQ==}
+    engines: {node: '>=18'}
+    dependencies:
+      '@sanity/client': 6.20.0
+      '@sanity/types': 3.46.1
       get-random-values-esm: 1.0.2
       moment: 2.30.1
       rxjs: 7.8.1
@@ -8932,6 +8951,11 @@ packages:
     resolution: {integrity: sha512-A1EmvIWG6xwYRfHuYUjPltHqteZ1EiDG+HOmbIYXeHUVztmnGrPIfU9KIK1QC30x59ko0r4JsMlwzsALCyiB3Q==}
     dependencies:
       uuidv7: 0.4.4
+    dev: false
+
+  /types@0.1.1:
+    resolution: {integrity: sha512-JuntZtJj4MKLE9x/XBs7IjsznYhzETwr34pw3XJTKvgYtAMdeMG+o8x8U85E5Lm6eCPa1DdOdGVsHMwq4ZnZAg==}
+    engines: {node: '>= 0.6.0'}
     dev: false
 
   /typescript@5.4.5:
