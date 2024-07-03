@@ -21,28 +21,6 @@ const site = defineType({
 			type: 'string',
 		}),
 		defineField({
-			name: 'address',
-			title: 'Street Address',
-			type: 'string',
-		}),
-		defineField({
-			name: 'addressLocality',
-			title: 'Address Locality',
-			type: 'string',
-			description: 'Example: New York',
-		}),
-		defineField({
-			name: 'addressRegion',
-			title: 'Address Region',
-			type: 'string',
-			description: 'Example: NY',
-		}),
-		defineField({
-			name: 'postalCode',
-			title: 'Postal Code',
-			type: 'string',
-		}),
-		defineField({
 			name: 'addressCountry',
 			title: 'Address Country',
 			type: 'string',

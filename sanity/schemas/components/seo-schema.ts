@@ -41,12 +41,6 @@ const seo = defineType({
 			}
 		),
 		defineField({
-			title: 'Meta Keywords',
-			name: 'metaKeys',
-			type: 'string',
-			description: 'Separate each keyword with a comma.',
-		}),
-		defineField({
 			title: 'Share Graphic',
 			name: 'shareGraphic',
 			type: 'image',

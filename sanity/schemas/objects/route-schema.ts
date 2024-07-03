@@ -37,6 +37,13 @@ const route = defineType({
 			type: 'string',
 		}),
 		defineField({
+			title: 'Anchor',
+			name: 'anchor',
+			fieldset: 'link',
+			description: 'Example: content. Hash symbol is not needed.',
+			type: 'string',
+		}),
+		defineField({
 			title: 'External link',
 			name: 'link',
 			type: 'string',
@@ -55,15 +62,19 @@ const route = defineType({
 			title: 'title',
 			pageRoute: 'pageRoute.slug.current',
 			route: 'route',
+			anchor: 'anchor',
 			link: 'link.link',
 		},
-		prepare({ title, pageRoute, route, link }) {
+		prepare({ title, pageRoute, route, anchor, link }) {
 			let subtitle = 'Not set'
 			if (pageRoute) {
 				subtitle = `Route: /${pageRoute}`
 			}
 			if (route) {
 				subtitle = `Route: /${route}`
+			}
+			if (anchor) {
+				subtitle = `#${anchor}`
 			}
 			if (link) {
 				subtitle = `External: ${link}`

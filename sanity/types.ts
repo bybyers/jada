@@ -129,6 +129,7 @@ export type Route = {
     [internalGroqTypeReferenceTo]?: "page";
   };
   route?: string;
+  anchor?: string;
   link?: string;
   blank?: boolean;
 };
@@ -347,12 +348,30 @@ export type Site = {
   title?: string;
   altTitle?: string;
   foundingYear?: string;
-  address?: string;
-  addressLocality?: string;
-  addressRegion?: string;
-  postalCode?: string;
   addressCountry?: string;
   social?: Social;
+  seo?: Seo;
+};
+
+export type Social = {
+  _type: "social";
+  facebook?: string;
+  linkedin?: string;
+  twitter?: string;
+  instagram?: string;
+  youtube?: string;
+  tiktok?: string;
+};
+
+export type Page = {
+  _id: string;
+  _type: "page";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  sections?: Sections;
   seo?: Seo;
 };
 
@@ -418,7 +437,6 @@ export type Seo = {
   noIndex?: boolean;
   metaTitle?: string;
   metaDesc?: string;
-  metaKeys?: string;
   shareGraphic?: {
     asset?: {
       _ref: string;
@@ -430,27 +448,6 @@ export type Seo = {
     crop?: SanityImageCrop;
     _type: "image";
   };
-};
-
-export type Social = {
-  _type: "social";
-  facebook?: string;
-  linkedin?: string;
-  twitter?: string;
-  instagram?: string;
-  youtube?: string;
-  tiktok?: string;
-};
-
-export type Page = {
-  _id: string;
-  _type: "page";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  slug?: Slug;
-  sections?: Sections;
 };
 
 export type MediaTag = {
