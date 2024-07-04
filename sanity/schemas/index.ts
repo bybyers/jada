@@ -30,6 +30,7 @@ import price from './objects/price-schema'
 import qa from './objects/qa-schema'
 import videoColumn from './objects/video-column-schema'
 import simpleText from './objects/simple-text-schema'
+import navObject from './objects/navigation-obj-schema'
 
 const schemas = [
   //arrays
@@ -64,6 +65,7 @@ const schemas = [
   price,
   qa,
   simpleText,
+  navObject,
 ]
 
 export default schemas

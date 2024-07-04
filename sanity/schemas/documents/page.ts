@@ -10,7 +10,7 @@ const page = defineType({
       name: 'page',
     },
     {
-      title: 'SEO settings',
+      title: 'SEO & Settings',
       name: 'seo',
     },
   ],
@@ -50,6 +50,12 @@ const page = defineType({
       },
       hidden: ({ document }) => document?.title === 'Home',
     }),
+    {
+			name: 'pageNav',
+			title: 'Navigation',
+			group: 'seo',
+			type: 'navObject',
+		},
   ],
   preview: {
     select: {
