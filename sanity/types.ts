@@ -197,8 +197,39 @@ export type SanityFileAsset = {
   source?: SanityAssetSourceData;
 };
 
+export type TextBlock = {
+  _type: "textBlock";
+  active?: boolean;
+  anchor?: string;
+  contentAlignment?: "left" | "center" | "right";
+  content?: NormalText;
+};
+
+export type NormalText = {
+  _type: "normalText";
+  text?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type PriceBlock = {
   _type: "priceBlock";
+  active?: boolean;
   anchor?: string;
   content?: Array<{
     children?: Array<{
@@ -244,12 +275,14 @@ export type PriceBlock = {
 
 export type VideoBlock = {
   _type: "videoBlock";
+  active?: boolean;
   anchor?: string;
   videoUrl?: string;
 };
 
 export type CtaBlock = {
   _type: "ctaBlock";
+  active?: boolean;
   anchor?: string;
   content?: Array<{
     children?: Array<{
@@ -274,6 +307,7 @@ export type CtaBlock = {
 
 export type QaBlock = {
   _type: "qaBlock";
+  active?: boolean;
   anchor?: string;
   content?: Array<{
     children?: Array<{
@@ -307,6 +341,7 @@ export type Cta = {
 
 export type InfoBlock = {
   _type: "infoBlock";
+  active?: boolean;
   anchor?: string;
   title?: string;
   columns?: Array<{
@@ -320,6 +355,7 @@ export type InfoBlock = {
 
 export type ReviewBlock = {
   _type: "reviewBlock";
+  active?: boolean;
   anchor?: string;
   titles?: Array<string>;
   reviews?: Array<{
@@ -333,6 +369,7 @@ export type ReviewBlock = {
 
 export type ColumnBlock = {
   _type: "columnBlock";
+  active?: boolean;
   anchor?: string;
   content?: Array<{
     children?: Array<{
@@ -373,7 +410,9 @@ export type Sections = Array<({
   _key: string;
 } & ReviewBlock) | ({
   _key: string;
-} & VideoBlock)>;
+} & VideoBlock) | ({
+  _key: string;
+} & TextBlock)>;
 
 export type Review = {
   _id: string;
