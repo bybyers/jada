@@ -24,8 +24,22 @@ export default defineConfig({
   scheduledPublishing: {
 		enabled: false,
 	},
+  tasks: {enabled: false},
   // Add and edit the content schema in the './sanity/schema' folder
   schema: { types: schemas },
+  document: {
+    // Use newDocumentOptions to filter out specific template IDs
+    newDocumentOptions: (prev, { creationContext }) => {
+      if (creationContext.type === 'global') {
+        // Filter out the `site` and `media.tag` template IDs from the create options
+        return prev.filter((templateItem) => {
+          // Check if templateId is available in templateItem.spec
+          return !['site', 'media.tag', 'navigation'].includes(templateItem?.templateId)
+        })
+      }
+      return prev
+    },
+  },
   plugins: [
     structureTool({
 			structure: deskStructure
