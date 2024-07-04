@@ -1,9 +1,11 @@
 import { defineType, defineField } from "sanity";
+import {SparkleIcon} from '@sanity/icons'
 
 
 const price = defineType({
   title: "Price",
   name: "price",
+  icon: SparkleIcon,
   type: "object",
   fields: [
     defineField({
@@ -16,10 +18,6 @@ const price = defineType({
     }),
     defineField({
       name: 'offer',
-      type: 'string',
-    }),
-    defineField({
-      name: 'reason',
       type: 'string',
     }),
     defineField({

@@ -1,11 +1,21 @@
 import { defineType, defineField } from "sanity";
+import {SparklesIcon} from '@sanity/icons'
 
 
 const priceBlock = defineType({
   title: "Price Block",
   name: "priceBlock",
+  icon: SparklesIcon,
   type: "object",
   fields: [
+    defineField(
+      {
+        title: "Anchor",
+        name: "anchor",
+        type: "string",
+        description: "The anchor for the section. No hash symbols. Optional.",
+      }
+    ),
     defineField(
       {
         name: 'content',

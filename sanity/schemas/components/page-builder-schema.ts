@@ -7,7 +7,12 @@ const pageBuilder = defineField({
 	type: 'array',
 	group: 'pagebuilder',
 	of: [
-		//{ type: 'hero' },
+		{ type: 'ctaBlock' },
+		{ type: 'columnBlock' },
+		{ type: 'priceBlock' },
+		{ type: 'qaBlock' },
+		{ type: 'reviewBlock' },
+		{ type: 'videoBlock' },
 	],
 	components: {
 		input: PageBuilderInput,

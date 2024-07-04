@@ -12,7 +12,7 @@ const cta = defineType({
 			name: 'active',
 			type: 'boolean',
 			description: 'If you want a call to action. Set to tue',
-			initialValue: true,
+			initialValue: false,
 		}),
 		defineField({
 			title: 'Route',

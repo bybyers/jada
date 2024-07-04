@@ -9,6 +9,14 @@ const infoBlock = defineType({
   fields: [
     defineField(
       {
+        title: "Anchor",
+        name: "anchor",
+        type: "string",
+        description: "The anchor for the section. No hash symbols. Optional.",
+      }
+    ),
+    defineField(
+      {
         name: 'title',
         type: 'string',
       }

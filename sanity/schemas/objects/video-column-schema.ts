@@ -1,9 +1,12 @@
 import { defineType, defineField } from "sanity";
+import {PlayIcon} from '@sanity/icons'
+import { title } from "process";
 
 const videoColumn = defineType({
   title: "Video Column",
   name: "videoColumn",
   type: "object",
+  icon: PlayIcon,
   fields: [
     defineField({
       title: "Video",
@@ -13,8 +16,16 @@ const videoColumn = defineType({
   ],
   preview: {
     select: {
-      title: "title",
+      title: "video.alt",
+      media: "video",
     },
+    prepare(selection) {
+      const { title } = selection;
+      return {
+        title: title,
+        media: PlayIcon,
+      };
+    }
   },
 });
 

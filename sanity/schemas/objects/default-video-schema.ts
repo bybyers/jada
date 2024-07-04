@@ -2,9 +2,7 @@ import { defineField } from 'sanity'
 
 const defaultVideo = defineField({
 	title: 'Video',
-	type: 'image',
-	description:
-		'Be meaningful with your image names. No screenshot_01.png. Keep file sizes small and under 400kb. Rough estimates for image widths are as follows: 2400px wide fullscreen, 1200px wide half screen, 800px wide quarter screen and 400px wide for small images.',
+	type: 'file',
 	name: 'defaultVideo',
 	fields: [
 		defineField({

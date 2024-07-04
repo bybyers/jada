@@ -1,11 +1,22 @@
 import { defineType, defineField } from "sanity";
+import {InlineIcon} from '@sanity/icons'
+
 
 // Define a column block with content and column fields. Maximum of 3 columns.
 const columnBlock = defineType({
   title: "Column Block",
   name: "columnBlock",
+  icon: InlineIcon,
   type: "object",
   fields: [
+    defineField(
+      {
+        title: "Anchor",
+        name: "anchor",
+        type: "string",
+        description: "The anchor for the section. No hash symbols. Optional.",
+      }
+    ),
     defineField({
       name: 'content',
       type: 'array',
@@ -16,17 +27,27 @@ const columnBlock = defineType({
       ],
     }),
     defineField({
-      title: "Columns",
-      name: "columns",
+      title: "Rows",
+      name: "rows",
       type: "array",
       of: [
         {
-          type: "column",
+          type: "columnArray",
+        },
+        {
+          type: 'simpleText',
+        },
+        {
+          type: "videoColumnArray",
         },
       ],
-      validation: (Rule) => Rule.max(3),
     }),
   ],
+  preview: {
+    select: {
+      title: 'content',
+    },
+  }
 });
 
 export default columnBlock;

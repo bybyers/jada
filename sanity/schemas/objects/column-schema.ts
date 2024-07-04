@@ -1,3 +1,4 @@
+import { title } from "process";
 import { defineType, defineField } from "sanity";
 
 
@@ -20,6 +21,12 @@ const column = defineType({
       ],
     }),
   ],
+  preview: {
+    select: {
+      media: "image",
+      title: "content",
+    },
+  },
 });
 
 export default column;
