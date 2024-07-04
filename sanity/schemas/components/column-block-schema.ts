@@ -9,6 +9,14 @@ const columnBlock = defineType({
   icon: InlineIcon,
   type: "object",
   fields: [
+    defineField({
+			title: 'Active?',
+			name: 'active',
+			type: 'boolean',
+			description:
+				'Set to false if you need to remove from page but not delete',
+			initialValue: true,
+		}),
     defineField(
       {
         title: "Anchor",
@@ -46,7 +54,14 @@ const columnBlock = defineType({
   preview: {
     select: {
       title: 'content',
+      active: 'active',
     },
+    prepare({title, active}) {
+      return {
+        title: 'Columns',
+        subtitle: active ? 'Active' : 'Inactive',
+      }
+    }
   }
 });
 

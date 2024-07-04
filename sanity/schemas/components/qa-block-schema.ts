@@ -8,6 +8,14 @@ const qaBlock = defineType({
   icon: TagsIcon,
   type: "object",
   fields: [
+    defineField({
+			title: 'Active?',
+			name: 'active',
+			type: 'boolean',
+			description:
+				'Set to false if you need to remove from page but not delete',
+			initialValue: true,
+		}),
     defineField(
       {
         title: "Anchor",
@@ -41,6 +49,18 @@ const qaBlock = defineType({
       type: "cta",
     }),
   ],
+  preview: {
+    select: {
+      title: 'content',
+      active: 'active',
+    },
+    prepare({title, active}) {
+      return {
+        title: 'QA',
+        subtitle: active ? 'Active' : 'Inactive',
+      }
+    }
+  }
 });
 
 

@@ -19,6 +19,7 @@ import qaBlock from './components/qa-block-schema'
 import ctaBlock from './components/cta-block-schema'
 import videoBlock from './components/video-block-schema'
 import priceBlock from './components/price-block-schema'
+import textBlock from './components/text-block-schema'
 
 // objects
 import defaultImage from './objects/default-img-schema'
@@ -31,6 +32,7 @@ import qa from './objects/qa-schema'
 import videoColumn from './objects/video-column-schema'
 import simpleText from './objects/simple-text-schema'
 import navObject from './objects/navigation-obj-schema'
+import normalText from './objects/normal-text-schema'
 
 const schemas = [
   //arrays
@@ -54,6 +56,7 @@ const schemas = [
   ctaBlock,
   videoBlock,
   priceBlock,
+  textBlock,
 
   // objects
   defaultImage,
@@ -66,6 +69,7 @@ const schemas = [
   qa,
   simpleText,
   navObject,
+  normalText,
 ]
 
 export default schemas

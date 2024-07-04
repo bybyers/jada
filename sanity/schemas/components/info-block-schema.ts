@@ -7,6 +7,14 @@ const infoBlock = defineType({
   name: "infoBlock",
   type: "object",
   fields: [
+    defineField({
+			title: 'Active?',
+			name: 'active',
+			type: 'boolean',
+			description:
+				'Set to false if you need to remove from page but not delete',
+			initialValue: true,
+		}),
     defineField(
       {
         title: "Anchor",

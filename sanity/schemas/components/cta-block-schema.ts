@@ -7,6 +7,14 @@ const ctaBlock = defineType({
   type: "object",
   icon: PresentationIcon,
   fields: [
+    defineField({
+			title: 'Active?',
+			name: 'active',
+			type: 'boolean',
+			description:
+				'Set to false if you need to remove from page but not delete',
+			initialValue: true,
+		}),
     defineField(
       {
         title: "Anchor",
@@ -37,7 +45,14 @@ const ctaBlock = defineType({
   preview: {
     select: {
       title: 'content',
+      active: 'active',
     },
+    prepare({title, active}) {
+      return {
+        title: 'CTA',
+        subtitle: active ? 'Active' : 'Inactive',
+      }
+    }
   }
 });
 

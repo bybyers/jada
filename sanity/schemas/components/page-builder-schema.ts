@@ -13,6 +13,7 @@ const pageBuilder = defineField({
 		{ type: 'qaBlock' },
 		{ type: 'reviewBlock' },
 		{ type: 'videoBlock' },
+		{ type: 'textBlock' },
 	],
 	components: {
 		input: PageBuilderInput,

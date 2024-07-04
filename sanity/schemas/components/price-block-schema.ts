@@ -8,6 +8,14 @@ const priceBlock = defineType({
   icon: SparklesIcon,
   type: "object",
   fields: [
+    defineField({
+			title: 'Active?',
+			name: 'active',
+			type: 'boolean',
+			description:
+				'Set to false if you need to remove from page but not delete',
+			initialValue: true,
+		}),
     defineField(
       {
         title: "Anchor",
@@ -53,8 +61,19 @@ const priceBlock = defineType({
       name: "cta",
       type: "cta",
     })
-
   ],
+  preview: {
+    select: {
+      title: 'content',
+      active: 'active',
+    },
+    prepare({title, active}) {
+      return {
+        title: 'Pricing',
+        subtitle: active ? 'Active' : 'Inactive',
+      }
+    }
+  }
 });
 
 export default priceBlock;

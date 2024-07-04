@@ -33,14 +33,14 @@ const route = defineType({
 			title: 'Path',
 			name: 'route',
 			fieldset: 'link',
-			description: 'Example: blog',
+			description: 'Example: blog or blog/#section',
 			type: 'string',
 		}),
 		defineField({
 			title: 'Anchor',
 			name: 'anchor',
 			fieldset: 'link',
-			description: 'Example: content. Hash symbol is not needed.',
+			description: 'For same page only. If for another page use Path instead. Example: content. Hash symbol is not needed.',
 			type: 'string',
 		}),
 		defineField({

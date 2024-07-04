@@ -9,6 +9,14 @@ const reviewBlock = defineType({
   type: "object",
   fields: [
     defineField({
+			title: 'Active?',
+			name: 'active',
+			type: 'boolean',
+			description:
+				'Set to false if you need to remove from page but not delete',
+			initialValue: true,
+		}),
+    defineField({
       title: "Anchor",
       name: "anchor",
       type: "string",
@@ -40,13 +48,13 @@ const reviewBlock = defineType({
   preview: {
     select: {
       titles: 'titles',
+      active: 'active',
     },
-    prepare(selection) {
-      const { titles } = selection;
-      const title = titles && titles.length > 0 ? titles[0] : 'Untitled';
+    prepare({ titles, active }) {
       return {
-        title: title,
-      };
+        title: 'Reviews',
+        subtitle: active ? 'Active' : 'Inactive',
+      }
     }
   }
 });
