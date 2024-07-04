@@ -39,28 +39,6 @@ export type SanityImageDimensions = {
   aspectRatio?: number;
 };
 
-export type SanityFileAsset = {
-  _id: string;
-  _type: "sanity.fileAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  originalFilename?: string;
-  label?: string;
-  title?: string;
-  description?: string;
-  altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
-  uploadId?: string;
-  path?: string;
-  url?: string;
-  source?: SanityAssetSourceData;
-};
-
 export type Geopoint = {
   _type: "geopoint";
   lat?: number;
@@ -68,10 +46,49 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type SimpleText = {
+  _type: "simpleText";
+  text?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+};
+
 export type Qa = {
   _type: "qa";
   question?: string;
-  answer?: string;
+  answer?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
 };
 
 export type Price = {
@@ -79,10 +96,23 @@ export type Price = {
   title?: string;
   price?: number;
   offer?: string;
-  reason?: string;
   perks?: Array<string>;
   payment?: string;
   book?: string;
+};
+
+export type VideoColumn = {
+  _type: "videoColumn";
+  video?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
+    };
+    alt?: string;
+    _type: "defaultVideo";
+  };
 };
 
 export type Column = {
@@ -134,42 +164,93 @@ export type Route = {
   blank?: boolean;
 };
 
-export type VideoColumn = {
-  _type: "videoColumn";
-  video?: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "defaultVideo";
-  };
-};
-
 export type DefaultVideo = {
   _type: "defaultVideo";
   asset?: {
     _ref: string;
     _type: "reference";
     _weak?: boolean;
-    [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    [internalGroqTypeReferenceTo]?: "sanity.fileAsset";
   };
-  hotspot?: SanityImageHotspot;
-  crop?: SanityImageCrop;
   alt?: string;
+};
+
+export type SanityFileAsset = {
+  _id: string;
+  _type: "sanity.fileAsset";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  originalFilename?: string;
+  label?: string;
+  title?: string;
+  description?: string;
+  altText?: string;
+  sha1hash?: string;
+  extension?: string;
+  mimeType?: string;
+  size?: number;
+  assetId?: string;
+  uploadId?: string;
+  path?: string;
+  url?: string;
+  source?: SanityAssetSourceData;
+};
+
+export type PriceBlock = {
+  _type: "priceBlock";
+  anchor?: string;
+  content?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  columns?: Array<{
+    _key: string;
+  } & Price>;
+  ctaContent?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "blockquote";
+    listItem?: "bullet" | "number";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  }>;
+  cta?: Cta;
 };
 
 export type VideoBlock = {
   _type: "videoBlock";
+  anchor?: string;
   videoUrl?: string;
 };
 
 export type CtaBlock = {
   _type: "ctaBlock";
+  anchor?: string;
   content?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -193,6 +274,7 @@ export type CtaBlock = {
 
 export type QaBlock = {
   _type: "qaBlock";
+  anchor?: string;
   content?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -225,6 +307,7 @@ export type Cta = {
 
 export type InfoBlock = {
   _type: "infoBlock";
+  anchor?: string;
   title?: string;
   columns?: Array<{
     _key: string;
@@ -237,6 +320,7 @@ export type InfoBlock = {
 
 export type ReviewBlock = {
   _type: "reviewBlock";
+  anchor?: string;
   titles?: Array<string>;
   reviews?: Array<{
     _ref: string;
@@ -249,6 +333,7 @@ export type ReviewBlock = {
 
 export type ColumnBlock = {
   _type: "columnBlock";
+  anchor?: string;
   content?: Array<{
     children?: Array<{
       marks?: Array<string>;
@@ -267,12 +352,28 @@ export type ColumnBlock = {
     _type: "block";
     _key: string;
   }>;
-  columns?: Array<{
+  rows?: Array<({
     _key: string;
-  } & Column>;
+  } & ColumnArray) | ({
+    _key: string;
+  } & SimpleText) | ({
+    _key: string;
+  } & VideoColumnArray)>;
 };
 
-export type Sections = null;
+export type Sections = Array<({
+  _key: string;
+} & CtaBlock) | ({
+  _key: string;
+} & ColumnBlock) | ({
+  _key: string;
+} & PriceBlock) | ({
+  _key: string;
+} & QaBlock) | ({
+  _key: string;
+} & ReviewBlock) | ({
+  _key: string;
+} & VideoBlock)>;
 
 export type Review = {
   _id: string;
@@ -373,6 +474,23 @@ export type Page = {
   slug?: Slug;
   sections?: Sections;
   seo?: Seo;
+  pageNav?: NavObject;
+};
+
+export type NavObject = {
+  _type: "navObject";
+  header?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "navigation";
+  };
+  footer?: {
+    _ref: string;
+    _type: "reference";
+    _weak?: boolean;
+    [internalGroqTypeReferenceTo]?: "navigation";
+  };
 };
 
 export type SanityImageCrop = {
@@ -448,6 +566,20 @@ export type Seo = {
     crop?: SanityImageCrop;
     _type: "image";
   };
+};
+
+export type VideoColumnArray = {
+  _type: "videoColumnArray";
+  columns?: Array<{
+    _key: string;
+  } & VideoColumn>;
+};
+
+export type ColumnArray = {
+  _type: "columnArray";
+  columns?: Array<{
+    _key: string;
+  } & Column>;
 };
 
 export type MediaTag = {
