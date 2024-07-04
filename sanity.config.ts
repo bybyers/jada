@@ -21,6 +21,9 @@ export default defineConfig({
   projectId,
   dataset,
   icon: SpotlightLogo,
+  scheduledPublishing: {
+		enabled: false,
+	},
   // Add and edit the content schema in the './sanity/schema' folder
   schema: { types: schemas },
   plugins: [
