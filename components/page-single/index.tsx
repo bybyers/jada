@@ -2,16 +2,22 @@
 import { SanityDocument } from "next-sanity"
 
 // Components
-import Sections from "../sections"
+import Header from "@/components/header"
+import Sections from "@/components/sections"
 
 
 
 export default function Page({ page }: { page: SanityDocument }) {
-  const { title, mainImage, sections } = page
+  const { pageNav, sections } = page
+
+  console.log(pageNav.header)
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Sections body={sections} />
-    </main>
+    <>
+      <Header items={pageNav.header} />
+      <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <Sections body={sections} />
+      </main>
+    </>
   )
 }
