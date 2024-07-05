@@ -1,19 +1,22 @@
 // Tools
-import { client } from '@/sanity/lib/client'
+import { SanityDocument } from "next-sanity"
+import { sanityFetch } from "@/sanity/lib/fetch"
 
 // Queries
 import { PAGE_QUERY } from '@/sanity/queries/documents/page-query'
 
 // Components
+import Page from "@/components/page"
 
 
 
 export default async function Home() {
-  const page = await client.fetch(PAGE_QUERY, { slug: 'home' })
+  const page = await sanityFetch<SanityDocument>({
+    query: PAGE_QUERY,
+    params: { slug: "home" },
+  })
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>{page.title}</h1>
-    </main>
+    <Page page={page} /> 
   );
 }

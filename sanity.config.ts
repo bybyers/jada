@@ -14,6 +14,7 @@ import SpotlightLogo from '@/components/logo'
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from './sanity/env'
 import schemas from '@/sanity/schemas'
+import { presentationTool } from 'sanity/presentation'
 
 export default defineConfig({
   basePath: '/studio',
@@ -48,5 +49,12 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
     media(),
+    presentationTool({
+      previewUrl: {
+        draftMode: {
+          enable: '/api/draft',
+        },
+      },
+    }),
   ],
 })
