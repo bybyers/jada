@@ -1057,6 +1057,13 @@
             "type": "boolean"
           },
           "optional": true
+        },
+        "nofollow": {
+          "type": "objectAttribute",
+          "value": {
+            "type": "boolean"
+          },
+          "optional": true
         }
       }
     }

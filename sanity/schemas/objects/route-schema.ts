@@ -56,6 +56,12 @@ const route = defineType({
 			type: 'boolean',
 			fieldset: 'link',
 		}),
+		defineField({
+			title: 'No follow',
+			name: 'nofollow',
+			type: 'boolean',
+			fieldset: 'link',
+		}),
 	],
 	preview: {
 		select: {

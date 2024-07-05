@@ -1,11 +1,24 @@
 'use client'
 
 // Tools
-import { SanityDocument } from "next-sanity"
-import Image from "next/image"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from "@/components/ui/navigation-menu"
+import { Button } from "@/components/ui/button"
+
 
 // Types
 import { Navigation } from "@/sanity/types"
+
+// Components
+import Route from "@/components/route"
 
 interface NavProps {
   data: Navigation
@@ -18,9 +31,23 @@ const Nav: React.FC<NavProps> = ({
   console.log('nav', data)
 
   return (
-    <div>
-      {data.title}
-    </div>
+    <NavigationMenu>
+			<NavigationMenuList className='space-x-5'>
+        {data.items?.map((item: any, index: number) => (
+          <NavigationMenuItem 
+            key={'header' + index}
+            id={'header' + index}
+          >
+            <Route data={item} className='flex'>
+              <Button variant="outline">
+                {item.title}
+              </Button>
+            </Route>
+          </NavigationMenuItem>
+        ))}
+
+      </NavigationMenuList>
+    </NavigationMenu>
   )
 }
 

@@ -162,6 +162,7 @@ export type Route = {
   anchor?: string;
   link?: string;
   blank?: boolean;
+  nofollow?: boolean;
 };
 
 export type DefaultVideo = {
@@ -636,3 +637,109 @@ export type Slug = {
   source?: string;
 };
 export declare const internalGroqTypeReferenceTo: unique symbol;
+// Source: ./sanity/queries/documents/page-query.ts
+// Variable: PAGES_QUERY
+// Query: *[_type == "page" && defined(slug.current)][]
+export type PAGES_QUERYResult = Array<{
+  _id: string;
+  _type: "page";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  title?: string;
+  slug?: Slug;
+  sections?: Sections;
+  seo?: Seo;
+  pageNav?: NavObject;
+}>;
+// Variable: PAGE_QUERY
+// Query: *[_type == "page" && slug.current == $slug][0]{  title,  "slug": slug.current,  pageNav {      header -> {    title,    items[] {        _type,  title,  blank,  pageRoute->{    slug {      current    }  },  route,  anchor,  link-> {    link,    nofollow  },      items[] {        "parentTitle": parentRoute.title,          _type,  title,  blank,  pageRoute->{    slug {      current    }  },  route,  anchor,  link-> {    link,    nofollow  },        parentRoute {            _type,  title,  blank,  pageRoute->{    slug {      current    }  },  route,  anchor,  link-> {    link,    nofollow  },        },        items[] {            _type,  title,  blank,  pageRoute->{    slug {      current    }  },  route,  anchor,  link-> {    link,    nofollow  },        }      }    }  },  footer -> {    title,    items[] {        _type,  title,  blank,  pageRoute->{    slug {      current    }  },  route,  anchor,  link-> {    link,    nofollow  },      items[] {        "parentTitle": parentRoute.title,          _type,  title,  blank,  pageRoute->{    slug {      current    }  },  route,  anchor,  link-> {    link,    nofollow  },        parentRoute {            _type,  title,  blank,  pageRoute->{    slug {      current    }  },  route,  anchor,  link-> {    link,    nofollow  },        },        items[] {            _type,  title,  blank,  pageRoute->{    slug {      current    }  },  route,  anchor,  link-> {    link,    nofollow  },        }      }    }  },  },  seo {    ...,    shareGraphic {        alt,   caption,  shadow,  crop {    ...  },  hotspot {    x,    y  },  asset-> {    ...,    metadata  },    },  },  sections[] {    ...,    image {        alt,   caption,  shadow,  crop {    ...  },  hotspot {    x,    y  },  asset-> {    ...,    metadata  },    },    ctaBlock {        active,      route {          _type,  title,  blank,  pageRoute->{    slug {      current    }  },  route,  anchor,  link-> {    link,    nofollow  }      }    },  }}
+export type PAGE_QUERYResult = {
+  title: string | null;
+  slug: string | null;
+  pageNav: {
+    header: {
+      title: string | null;
+      items: Array<{
+        _type: "route";
+        title: string | null;
+        blank: boolean | null;
+        pageRoute: {
+          slug: {
+            current: string | null;
+          } | null;
+        } | null;
+        route: string | null;
+        anchor: string | null;
+        link: null;
+        items: null;
+      }> | null;
+    } | null;
+    footer: {
+      title: string | null;
+      items: Array<{
+        _type: "route";
+        title: string | null;
+        blank: boolean | null;
+        pageRoute: {
+          slug: {
+            current: string | null;
+          } | null;
+        } | null;
+        route: string | null;
+        anchor: string | null;
+        link: null;
+        items: null;
+      }> | null;
+    } | null;
+  } | null;
+  seo: {
+    _type: "seo";
+    noIndex?: boolean;
+    metaTitle?: string;
+    metaDesc?: string;
+    shareGraphic: {
+      alt: null;
+      caption: null;
+      shadow: null;
+      crop: {
+        _type: "sanity.imageCrop";
+        top?: number;
+        bottom?: number;
+        left?: number;
+        right?: number;
+      } | null;
+      hotspot: {
+        x: number | null;
+        y: number | null;
+      } | null;
+      asset: {
+        _id: string;
+        _type: "sanity.imageAsset";
+        _createdAt: string;
+        _updatedAt: string;
+        _rev: string;
+        originalFilename?: string;
+        label?: string;
+        title?: string;
+        description?: string;
+        altText?: string;
+        sha1hash?: string;
+        extension?: string;
+        mimeType?: string;
+        size?: number;
+        assetId?: string;
+        uploadId?: string;
+        path?: string;
+        url?: string;
+        metadata: SanityImageMetadata | null;
+        source?: SanityAssetSourceData;
+      } | null;
+    } | null;
+  } | null;
+  sections: Array<{
+    _key: string;
+    image: null;
+    ctaBlock: null;
+  }> | null;
+} | null;
