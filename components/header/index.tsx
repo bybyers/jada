@@ -6,15 +6,14 @@ import Link from "next/link"
 import { SanityDocument } from "next-sanity"
 
 // Types
-import { NavObject } from "@/sanity/types"
-import { Navigation } from "@/sanity/types"
+import { NavigationType } from "@/types/documents/navigation-type"
 
 // Components
 import Logo from '@/public/logo.png'
 import Nav from "@/components/navigation"
 
 interface HeaderProps {
-  items: Navigation
+  items: NavigationType
 }
 
 

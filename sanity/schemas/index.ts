@@ -7,7 +7,6 @@ import page from './documents/page'
 import site from './documents/site-schema'
 import navigation from './documents/navigation-schema'
 import review from './documents/review-schema'
-import infoBlock from './components/info-block-schema'
 
 // components
 import sections from './components/page-builder-schema'
@@ -51,7 +50,6 @@ const schemas = [
   social,
   columnBlock,
   reviewBlock,
-  infoBlock,
   qaBlock,
   ctaBlock,
   videoBlock,

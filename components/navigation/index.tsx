@@ -15,13 +15,13 @@ import { Button } from "@/components/ui/button"
 
 
 // Types
-import { Navigation } from "@/sanity/types"
+import { NavigationType } from "@/types/documents/navigation-type"
 
 // Components
 import Route from "@/components/route"
 
 interface NavProps {
-  data: Navigation
+  data: NavigationType
 }
 
 const Nav: React.FC<NavProps> = ({
