@@ -6,7 +6,7 @@ import { sanityFetch } from "@/sanity/lib/fetch"
 import { PAGE_QUERY } from '@/sanity/queries/documents/page-query'
 
 // Components
-import Page from "@/components/page"
+import Page from "@/components/page-single"
 
 
 
