@@ -4,10 +4,10 @@
 import { SanityDocument } from "next-sanity"
 
 // Types
-
+import { CtaBlockType } from '@/types/components/cta-block-type'
 
 // Components
-
+import SimpleText from '@/components/simple-text'
 
 
 const CtaBlock: React.FC<SanityDocument> = ({
