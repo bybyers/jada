@@ -21,8 +21,6 @@ const Header: React.FC<HeaderProps> = ({
   items
 }) => {
 
-  console.log('header', items)
-
   return (
     <header className='w-full flex justify-center'>
       <div className='flex flex-col items-center w-full max-w-6xl xl:max-w-8xl'>
