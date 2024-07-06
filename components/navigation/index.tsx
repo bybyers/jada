@@ -23,8 +23,6 @@ const Nav: React.FC<NavProps> = ({
   data
 }) => {
 
-  console.log('nav', data)
-
   return (
     <NavigationMenu>
 			<NavigationMenuList className='flex flex-wrap gap-y-2 lg:gap-x-10'>
