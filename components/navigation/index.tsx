@@ -32,7 +32,7 @@ const Nav: React.FC<NavProps> = ({
 
   return (
     <NavigationMenu>
-			<NavigationMenuList className='space-x-5'>
+			<NavigationMenuList className='space-x-5 md:space-x-10'>
         {data.items?.map((item: any, index: number) => (
           <NavigationMenuItem 
             key={'header' + index}

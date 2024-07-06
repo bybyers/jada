@@ -3,7 +3,7 @@ import { SanityDocument } from "next-sanity"
 import { sanityFetch } from "@/sanity/lib/fetch"
 
 // Queries
-import { PAGE_QUERY } from '@/sanity/queries/documents/page-query'
+import { PageQuery } from '@/sanity/queries/documents/page-query'
 
 // Components
 import Page from "@/components/page-single"
@@ -12,7 +12,7 @@ import Page from "@/components/page-single"
 
 export default async function Home() {
   const page = await sanityFetch<SanityDocument>({
-    query: PAGE_QUERY,
+    query: PageQuery,
     params: { slug: "home" },
   })
 
