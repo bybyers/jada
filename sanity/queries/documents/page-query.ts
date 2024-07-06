@@ -42,6 +42,9 @@ export const PageQuery = groq`
             image {
               ${imageQuery}
             },
+            video {
+            ${imageQuery}
+          },
             content[] {
               ... // Assuming there can be rich text or other fields in content
             }
@@ -69,8 +72,8 @@ export const PageQuery = groq`
         columns[] {
           ...,
           video {
-            ... // Assuming there are fields to fetch for videos
-          }
+            ${imageQuery}
+          },
         }
       },
       // Add other block types if needed

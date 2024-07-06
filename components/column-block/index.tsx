@@ -5,11 +5,13 @@
 // Types
 import { ColumnBlockType } from "@/types/components/column-block-type"
 import { ColumnArrayType } from "@/types/arrays/column-array-type"
-import { SimpleTextType } from "@/types/objects/simple-text-type"
+import { VideoColumnArrayType } from "@/types/arrays/video-column-array-type"
 
 // Components
-import SimpleText from "../simple-text"
+import SimpleText from "@/components/simple-text"
 import ColumnArray from "@/components/column-array"
+import ColumnText from "@/components/column-text"
+import VideoArray from "@/components/video-array"
 
 const ColumnBlock: React.FC<ColumnBlockType> = ({
   active,
@@ -20,7 +22,6 @@ const ColumnBlock: React.FC<ColumnBlockType> = ({
   rows
 }) => {
 
-  console.log('rows', rows)
 
   if (active) {
     return (
@@ -34,17 +35,20 @@ const ColumnBlock: React.FC<ColumnBlockType> = ({
               <SimpleText content={content} />
             </div>
           )}
-           {rows && rows.map((row, index) => (
+           {rows && rows.map((row, index) => {
+              
+            return (
               <div key={index} className='w-full flex'>
                 {row._type === 'columnArray' ? (
                   <ColumnArray row={row as ColumnArrayType} />
                 ) : row._type === 'simpleText' ? (
-                  <SimpleText content={row as SimpleTextType} />
+                  <ColumnText row={row as any} />
                 ) : (
-                  <div></div>
+                  <VideoArray row={row as VideoColumnArrayType} />
                 )}
               </div>
-            ))}
+            )
+           })}
         </div>
         {componentIndex !== lastComponent && (
           <div className='w-full max-w-6xl xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-indigo-700 to-indigo-950' />
