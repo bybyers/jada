@@ -53,8 +53,11 @@ export const PageQuery = groq`
       },
       _type == 'reviewBlock' => {
         ...,
-        reviews[] {
-          ... // Assuming there are references or objects within reviews
+        reviews[]-> {
+          ...,
+          image {
+            ${imageQuery}
+          },
         },
         titles
       },
