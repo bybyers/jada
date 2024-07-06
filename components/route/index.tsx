@@ -4,22 +4,12 @@
 import Link from 'next/link'
 
 // Types
+import { RouteType } from '@/types/objects/route-type'
 
 interface RouteProps {
-  children: React.ReactNode
-  className?: string
-	data: {
-    pageRoute?: {
-      slug: {
-        current: string
-      }
-    },
-    route?: string,
-    anchor?: string,
-    link?: string,
-    blank?: boolean,
-    nofollow?: boolean,
-  }
+	data: RouteType
+	className?: string
+	children?: React.ReactNode
 }
 
 const Route: React.FC<RouteProps> = ({ data, className, children }) => {

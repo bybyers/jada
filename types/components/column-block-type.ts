@@ -5,6 +5,7 @@ import { VideoColumnArrayType } from '../arrays/video-column-array-type'
 export type ColumnBlockType = {
 	active?: boolean
 	componentIndex?: number
+	lastComponent?: number
 	anchor?: string
 	content?: SimpleTextType
   rows?: ColumnArrayType[] | SimpleTextType[] | VideoColumnArrayType[]

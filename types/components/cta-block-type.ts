@@ -4,6 +4,7 @@ import { CtaType } from '../objects/cta-type'
 export type CtaBlockType = {
 	active?: boolean
 	componentIndex?: number
+	lastComponent?: number
 	anchor?: string
 	content?: SimpleTextType
 	cta?: CtaType

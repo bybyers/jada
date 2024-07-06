@@ -4,7 +4,8 @@ export type TextBlockType = {
 	_type: 'textBlock'
 	active: boolean
 	anchor: string
-	componentIndex: number
+	componentIndex?: number
+	lastComponent?: number
 	contentAlignment: 'left' | 'center' | 'right'
 	content: NormalTextType
 }

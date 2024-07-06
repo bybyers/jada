@@ -5,6 +5,7 @@ import { QaType } from "../objects/qa-type"
 export type QaBlockType = {
   active?: boolean
 	componentIndex?: number
+  lastComponent?: number
 	anchor?: string
   content?: SimpleTextType
   qa?: QaType[]

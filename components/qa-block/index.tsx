@@ -13,6 +13,7 @@ import { SanityDocument } from "next-sanity"
 const QaBlock: React.FC<SanityDocument> = ({
   active,
   componentIndex,
+  lastComponent,
   anchor
 }) => {
 
@@ -20,10 +21,11 @@ const QaBlock: React.FC<SanityDocument> = ({
     return (
       <section
         id={`${anchor ? anchor : 'qa-block-' + componentIndex}`}
-        className='py-10 lg:py-24 xl:py-36 flex justify-center'
+        className='w-full pt-16 lg:pt-24 xl:pt-36 flex flex-col items-center'
       >
-        <div className='w-full max-w-6xl xl:max-w-8xl px-12'>
+        <div className='flex flex-col text-center items-center w-full max-w-6xl xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12'>
           QA Block
+          <p>{componentIndex}-{lastComponent}</p>
         </div>
       </section>
     )

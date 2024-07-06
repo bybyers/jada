@@ -6,6 +6,7 @@ import { CtaType } from "../objects/cta-type"
 export type PriceBlockType = {
   active?: boolean
 	componentIndex?: number
+  lastComponent?: number
 	anchor?: string
   content?: SimpleTextType
   columns?: PriceType[]
