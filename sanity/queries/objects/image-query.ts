@@ -13,6 +13,7 @@ export const imageQuery = groq`
   },
   asset-> {
     ...,
+    url,
     metadata
   },
 `

@@ -1,21 +1,26 @@
 'use client'
 
 // Tools
-import { SanityDocument } from "next-sanity"
 
 // Types
-
+import { ColumnBlockType } from "@/types/components/column-block-type"
+import { ColumnArrayType } from "@/types/arrays/column-array-type"
+import { SimpleTextType } from "@/types/objects/simple-text-type"
 
 // Components
+import SimpleText from "../simple-text"
+import ColumnArray from "@/components/column-array"
 
-
-
-const ColumnBlock: React.FC<SanityDocument> = ({
+const ColumnBlock: React.FC<ColumnBlockType> = ({
   active,
   componentIndex,
   lastComponent,
-  anchor
+  anchor,
+  content,
+  rows
 }) => {
+
+  console.log('rows', rows)
 
   if (active) {
     return (
@@ -23,9 +28,27 @@ const ColumnBlock: React.FC<SanityDocument> = ({
         id={`${anchor ? anchor : 'column-block-' + componentIndex}`}
         className='w-full pt-16 lg:pt-24 xl:pt-36 flex flex-col items-center'
       >
-        <div className='flex flex-col text-center items-center w-full max-w-6xl xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12'>
-          Column Block
+        <div className='flex flex-col gap-y-16 text-center items-center w-full max-w-6xl xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12'>
+          {content && (
+            <div className='content'>
+              <SimpleText content={content} />
+            </div>
+          )}
+           {rows && rows.map((row, index) => (
+              <div key={index} className='w-full flex'>
+                {row._type === 'columnArray' ? (
+                  <ColumnArray row={row as ColumnArrayType} />
+                ) : row._type === 'simpleText' ? (
+                  <SimpleText content={row as SimpleTextType} />
+                ) : (
+                  <div></div>
+                )}
+              </div>
+            ))}
         </div>
+        {componentIndex !== lastComponent && (
+          <div className='w-full max-w-6xl xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-indigo-700 to-indigo-950' />
+        )}
       </section>
     )
   }
