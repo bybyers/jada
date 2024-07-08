@@ -1,4 +1,5 @@
 import { defineType, defineField } from "sanity";
+import {PlayIcon} from '@sanity/icons'
 
 // Define the schema for the video block
 const videoBlock = defineType({
@@ -23,11 +24,24 @@ const videoBlock = defineType({
       }
     ),
     defineField({
-      title: "Video URL",
-      name: "videoUrl",
-      type: "url",
+      title: "Video",
+      name: "video",
+      type: "defaultVideo",
     }),
   ],
+  preview: {
+    select: {
+      title: "video.alt",
+      media: "video",
+    },
+    prepare(selection) {
+      const { title } = selection;
+      return {
+        title: title,
+        media: PlayIcon,
+      };
+    }
+  },
 });
 
 export default videoBlock;

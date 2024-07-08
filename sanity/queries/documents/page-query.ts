@@ -79,7 +79,12 @@ export const PageQuery = groq`
           },
         }
       },
-      // Add other block types if needed
+      _type == 'videoBlock' => {
+        ...,
+        video {
+          ${imageQuery}
+        },
+      },
     }
   }
 `

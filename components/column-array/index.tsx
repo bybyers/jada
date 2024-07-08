@@ -22,7 +22,7 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
 
   if (row.columns && row.columns.length > 0) {
     return (
-      <div className='w-full flex flex-wrap justify-between gap-y-10'>
+      <div className='w-full flex flex-wrap justify-between gap-y-16'>
         {row.columns.map((column: ColumnType, index) => {
 
           return (

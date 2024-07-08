@@ -1,6 +1,5 @@
 import { defineType, defineField } from "sanity";
 import {PlayIcon} from '@sanity/icons'
-import { title } from "process";
 
 const videoColumn = defineType({
   title: "Video Column",
