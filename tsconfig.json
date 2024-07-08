@@ -23,6 +23,7 @@
 			"@/queries/*": ["./sanity/queries/*"],
 			"@/styles/*": ["./styles/*"],
 			"@/components/*": ["./components/*"],
+      "@/context/*": ["./context/*"],
 			"@/public/*": ["./public/*"],
 			"@/helpers/*": ["./helpers/*"],
 			"@/sanity/*": ["./sanity/*"],
