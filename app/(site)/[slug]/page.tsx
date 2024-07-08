@@ -1,5 +1,5 @@
 // Tools
-import { SanityDocument } from "next-sanity"
+import { QueryParams, SanityDocument } from "next-sanity"
 import { sanityFetch } from "@/sanity/lib/fetch"
 import { notFound } from "next/navigation"
 
@@ -24,11 +24,8 @@ export async function generateStaticParams() {
 
 
 
-export default async function Home() {
-  const page = await sanityFetch<SanityDocument>({
-    query: PageQuery,
-    params: { slug: "home" },
-  })
+export default async function SinglePage({ params }: { params: QueryParams }) {
+  const page = await sanityFetch<SanityDocument>({ query: PageQuery, params })
 
   if (!page) {
     return notFound()
