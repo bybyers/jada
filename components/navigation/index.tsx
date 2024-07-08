@@ -32,7 +32,7 @@ const Nav: React.FC<NavProps> = ({
             id={'header' + index}
           >
             <Route data={item} className='flex'>
-              <Button variant="outline">
+              <Button variant="outline" size="navigation">
                 {item.title}
               </Button>
             </Route>

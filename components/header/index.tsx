@@ -23,8 +23,8 @@ const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className='w-full flex justify-center'>
-      <div className={`flex ${items ? 'justify-between pr-5 lg:pr-10' : 'justify-center'} w-full max-w-6xl xl:max-w-8xl`}>
-        <Link href='/'>
+      <div className={`flex ${items ? 'flex-col lg:flex-row items-center justify-center lg:justify-between pb-10 lg:pb-0 lg:pr-10' : 'justify-center'} w-full max-w-6xl xl:max-w-8xl`}>
+        <Link href='/' className='w-24 lg:w-auto'>
           <Image src={Logo} alt='Logo' width={190} height={190} />
         </Link>
        {items && (
