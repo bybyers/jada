@@ -1,7 +1,6 @@
 'use client'
 
 // Tools
-import { SanityDocument } from "next-sanity"
 
 // Types
 import { CtaBlockType } from '@/types/components/cta-block-type'
