@@ -31,7 +31,7 @@ const PriceBlock: React.FC<PriceBlockType> = ({
         id={`${anchor ? anchor : 'prices-block-' + componentIndex}`}
         className={`w-full ${componentIndex !== 0 && 'pt-16 lg:pt-24 xl:pt-36'} flex flex-col items-center`}
       >
-        <div className='flex flex-col gap-y-16 text-center items-center w-full max-w-6xl xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12'>
+        <div className='flex flex-col gap-y-16 text-center items-center w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12'>
           {content && (
             <div className='content'>
               <SimpleText content={content} />
@@ -86,7 +86,7 @@ const PriceBlock: React.FC<PriceBlockType> = ({
           </div>
         </div>
         {componentIndex !== lastComponent && (
-          <div className='w-full max-w-6xl xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-indigo-700 to-indigo-950' />
+          <div className='w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-indigo-700 to-indigo-950' />
         )}
       </section>
     )

@@ -21,15 +21,15 @@ const buttonVariants = cva(
       },
       size: {
         default: "h-12 px-4 py-2",
-        navigation: "h-8 lg:h-12 lg:px-4 py-2",
+        navigation: "h-8 2xl:h-12 2xl:px-4 py-2",
         sm: "h-9 rounded-md px-3",
-        lg: "h-16 lg:h-20 px-10 ",
+        lg: "h-16 2xl:h-20 px-10 ",
         icon: "h-10 w-10",
       },
       fontSize: {
-        default: "text-xs lg:text-base",
+        default: "text-xs 2xl:text-base",
         sm: "text-sm",
-        lg: "text-sm lg:text-2xs lg:text-lg rounded-2xl",
+        lg: "text-sm lg:text-base 2xl:text-lg rounded-2xl",
       },
     },
     defaultVariants: {

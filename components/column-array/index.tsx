@@ -22,11 +22,11 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
 
   if (row.columns && row.columns.length > 0) {
     return (
-      <div className='w-full flex flex-wrap justify-between gap-y-16'>
+      <div className='column-array w-full flex flex-wrap xl:flex-nowrap justify-between gap-x-14 gap-y-16'>
         {row.columns.map((column: ColumnType, index) => {
 
           return (
-            <div key={index} className='mt-10 lg:mt-0 w-full max-w-md flex flex-col gap-y-8 content items-center '>
+            <div key={index} className='mt-10 lg:mt-0 w-full xl:max-w-sm 2xl:max-w-md flex flex-col gap-y-8 content items-center '>
               {column.image && (
                 <div className={`${columnLength > 2 ? 'w-24' : 'w-28'} mb-5 p-4 rounded-3xl shadow-white/40 shadow`}>
                   <SanityImage
@@ -41,7 +41,9 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
                 </div>
               )}
               {column.content && (
-                <SimpleText content={column.content} />
+                <div className='content'>
+                  <SimpleText content={column.content} />
+                </div>
               )}
             </div>
           )

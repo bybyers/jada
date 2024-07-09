@@ -33,19 +33,19 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
         id={`${anchor ? anchor : 'review-block-' + componentIndex}`}
         className={`w-full ${componentIndex !== 0 && 'pt-16 lg:pt-24 xl:pt-36'} flex flex-col items-center`}
       >
-        <div className='flex flex-col gap-y-24 text-center items-center w-full max-w-6xl xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12 content'>
+        <div className='flex flex-col gap-y-24 text-center items-center w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12 content'>
           {titles && titles.length > 0 && (
             <div className='titles'>
               <h2 className='text-4xl lg:text-5xl xl:text-6xl font-bold'>{titles[0]}</h2>
             </div>
           )}
-          <div className='flex flex-wrap gap-y-16 w-full justify-around'>
+          <div className='flex flex-wrap gap-y-16 w-full justify-between'>
             {reviews && reviews.map((review, index) => {
 
               
               return (
-                <div key={index} className='review'>
-                  <div className='w-full max-w-md flex flex-col items-center gap-y-10'>
+                <div key={index} className='review text-balance'>
+                  <div className='w-full xl:max-w-sm 2xl:max-w-md flex flex-col items-center gap-y-10'>
                     <div className='space-y-3'>
                       <Avatar>
                         <AvatarImage src={review.image?.asset.url} alt="@shadcn" />
@@ -59,12 +59,12 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
                         <AiFillStar />
                       </div>
                     </div>
-                    <div className='space-y-2'>
+                    <div className='2xl:text-lg space-y-2'>
                       <SimpleText content={review.content} />
                     </div>
                     <div className='flex flex-col text-center'>
-                      <h3 className='text-2xl font-bold'>{review.name}</h3>
-                      <p className=''>{review.title}</p>
+                      <h3 className='2xl:text-2xl font-bold'>{review.name}</h3>
+                      <p className='2xl:text-lg'>{review.title}</p>
                     </div>
                   </div>
                 </div>
@@ -73,7 +73,7 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
           </div>
         </div>
         {componentIndex !== lastComponent && (
-          <div className='w-full max-w-6xl xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-indigo-700 to-indigo-950' />
+          <div className='w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-indigo-700 to-indigo-950' />
         )}
       </section>
     )

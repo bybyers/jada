@@ -29,7 +29,7 @@ const VideoArray: React.FC<VideoColumnArrayProps> = ({
         {row.columns.map((column: VideoColumnType, index) => {
 
           return (
-            <div key={index} className={`mt-10 lg:mt-0 w-full ${columnLength < 3 ? 'max-w-2xl' : 'max-w-sm px-5'} flex flex-col gap-y-8 content items-center`}>
+            <div key={index} className={`mt-10 lg:mt-0 w-full ${columnLength < 3 ? 'max-w-xl 2xl:max-w-2xl' : 'max-w-sm px-5'} flex flex-col gap-y-8 content items-center`}>
               {column.video && (
                 <div>
                   <video src={column.video.asset.url} preload='auto' controls={true} />

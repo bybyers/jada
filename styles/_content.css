@@ -1,13 +1,13 @@
 /* Content Stylings */
 .content {
-	@apply flex flex-col gap-y-5;
+	@apply flex flex-col gap-y-5 text-balance;
 
 	& > p {
-		@apply text-base lg:text-2xl lg:leading-[48px];
+		@apply text-base lg:text-xl 2xl:text-2xl lg:leading-loose 2xl:leading-[48px];
 	}
 
 	& > p > a {
-		@apply text-base lg:text-2xl hover:underline;
+		@apply text-base lg:text-xl 2xl:text-2xl hover:underline;
 	}
 
 	& > p > strong {
@@ -16,17 +16,17 @@
 
 	& > h1,
 	& > .h1 {
-		@apply text-4xl lg:text-7xl xl:text-8xl font-semibold !leading-tight mb-5;
+		@apply text-4xl lg:text-7xl 2xl:text-8xl font-semibold !leading-tight mb-5;
 	}
 
 	& > h2,
 	& > .h2 {
-		@apply text-3xl lg:text-5xl xl:text-7xl font-medium !leading-tight mb-5;
+		@apply text-3xl lg:text-5xl 2xl:text-7xl font-medium !leading-tight mb-5;
 	}
 
 	& > h3,
 	& > .h3 {
-		@apply text-2xl lg:text-3xl;
+		@apply text-2xl 2xl:text-3xl font-semibold;
 	}
 
 	& > h4,
@@ -49,4 +49,8 @@
 	& > ul > li {
 		@apply text-xl;
 	}
+}
+
+.column-array .content {
+	
 }
