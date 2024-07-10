@@ -25,7 +25,7 @@ const VideoArray: React.FC<VideoColumnArrayProps> = ({
 
   if (row.columns && row.columns.length > 0) {
     return (
-      <div className='w-full flex flex-wrap justify-around gap-y-10 rounded-3xl shadow-white/40 shadow'>
+      <div className='w-full flex flex-wrap justify-around gap-y-10 rounded-3xl border-white/40 border-2'>
         {row.columns.map((column: VideoColumnType, index) => {
 
           return (

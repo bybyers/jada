@@ -16,6 +16,8 @@ const buttonVariants = cva(
           "border border-input bg-background hover:bg-accent hover:text-indigo-700",
         secondary:
           "bg-gradient-to-b from-[#f1f1f1] to-secondary text-secondary-foreground hover:bg-secondary/80",
+        gradient: "bg-gradient-to-bl from-[#9c83fe] to-[#838383] text-secondary-foreground hover:bg-secondary/80",
+
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
@@ -23,13 +25,13 @@ const buttonVariants = cva(
         default: "h-12 px-4 py-2",
         navigation: "h-8 2xl:h-12 px-4 py-2",
         sm: "h-9 rounded-md px-3",
-        lg: "h-16 2xl:h-20 px-10 ",
+        lg: "h-12 2xl:h-20 px-10 ",
         icon: "h-10 w-10",
       },
       fontSize: {
         default: "text-xs 2xl:text-base",
         sm: "text-sm",
-        lg: "text-sm lg:text-base 2xl:text-lg rounded-2xl",
+        lg: "text-sm lg:text-base 2xl:text-lg ",
       },
     },
     defaultVariants: {
