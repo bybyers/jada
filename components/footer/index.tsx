@@ -54,7 +54,7 @@ const Footer: React.FC<FooterProps> = ({
       <div className='flex gap-y-10 text-white'>
         {socials?.linkedin && (
           <Link href={socials?.linkedin}>
-            <div className='bg-[#582fef] h-10 w-10 rounded-full flex justify-center items-center'>
+            <div className='bg-gradient-to-b from-[#616ab3] to-primary h-10 w-10 rounded-full flex justify-center items-center'>
               <BiLogoLinkedin size={`1.5rem`} />
             </div>
           </Link>

@@ -44,7 +44,7 @@ const CtaBlock: React.FC<CtaBlockType> = ({
           )}
         </div>
         {componentIndex !== lastComponent && (
-          <div className='w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-indigo-700 to-indigo-950' />
+          <div className='w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-[#53546d] to-indigo-950' />
         )}
       </section>
     )
