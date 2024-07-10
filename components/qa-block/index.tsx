@@ -42,7 +42,7 @@ const QaBlock: React.FC<QaBlockType> = ({
           )}
           <div className='w-full flex flex-wrap mt-10'>
             <div className='w-full lg:w-1/2 text-left'>
-              <Accordion type="single" collapsible>
+              <Accordion type="single" className='space-y-3' collapsible>
                 {qa && qa.map((item, index) => {
                   return (
                     <AccordionItem key={`qa-${index}`} value={`qa-${index}`}>
