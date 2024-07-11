@@ -44,7 +44,7 @@ const ColumnBlock: React.FC<ColumnBlockType> = ({
               }}
               viewport={{ once: true }} 
               transition={{ 
-                delay: 0.5,
+                delay: componentIndex !== 0 ? 0.5 : 0,
                 type: 'spring',
                 duration: 1.5
               }}

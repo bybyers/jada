@@ -36,15 +36,45 @@ const PriceBlock: React.FC<PriceBlockType> = ({
       >
         <div className='flex flex-col gap-y-16 text-center items-center w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12'>
           {content && (
-            <div className='content'>
+            <motion.div 
+              className='content'
+              initial={{ 
+                opacity: 0,
+                scale: 0.95
+              }}
+              whileInView={{ 
+                opacity: 1,
+                scale: 1
+              }}
+              viewport={{ once: true }} 
+              transition={{ 
+                delay: componentIndex !== 0 ? 0.5 : 0,
+                type: 'spring',
+                duration: 1.5
+              }}
+            >
               <SimpleText content={content} />
-            </div>
+            </motion.div>
           )}
-          <div className='flex flex-wrap justify-center'>
+          <motion.div 
+            className='flex flex-wrap justify-center'
+            initial={{ 
+              opacity: 0,
+              scale: 0.95
+            }}
+            whileInView={{ 
+              opacity: 1,
+              scale: 1
+            }}
+            viewport={{ once: true }} 
+            transition={{ 
+              delay: componentIndex !== 0 ? 0.5 : 0,
+              type: 'spring',
+              duration: 1.5
+            }}  
+          >
             {columns && columns.map((column, index) => {
 
-              // get first and last of index
-              const first = index === 0
               const last = index === columns.length - 1
 
               return (
@@ -90,8 +120,24 @@ const PriceBlock: React.FC<PriceBlockType> = ({
                 </div>
               )
             })}
-          </div>
-          <div className='flex flex-col items-center w-full border-[#c8a7f2] border-2 rounded-3xl p-5 lg:p-10'>
+          </motion.div>
+          <motion.div 
+            className='flex flex-col items-center w-full border-[#c8a7f2] border-2 rounded-3xl p-5 lg:p-10'
+            initial={{ 
+              opacity: 0,
+              scale: 0.95
+            }}
+            whileInView={{ 
+              opacity: 1,
+              scale: 1
+            }}
+            viewport={{ once: true }} 
+            transition={{ 
+              delay: componentIndex !== 0 ? 0.5 : 0,
+              type: 'spring',
+              duration: 1.5
+            }}
+          >
             {ctaContent && (
               <div className='content bg-gradient-to-b from-[#d6d5d5] to-white text-transparent bg-clip-text'>
                 <SimpleText content={ctaContent} />
@@ -106,7 +152,7 @@ const PriceBlock: React.FC<PriceBlockType> = ({
                 </Route>
               </div>
             )}
-          </div>
+          </motion.div>
         </div>
         {componentIndex !== lastComponent && (
           <motion.div 

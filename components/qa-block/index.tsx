@@ -36,12 +36,44 @@ const QaBlock: React.FC<QaBlockType> = ({
       >
         <div className='flex flex-col text-center items-center w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12'>
           {content && (
-            <div className='content'>
+            <motion.div 
+              className='content'
+              initial={{ 
+                opacity: 0,
+                scale: 0.95
+              }}
+              whileInView={{ 
+                opacity: 1,
+                scale: 1
+              }}
+              viewport={{ once: true }} 
+              transition={{ 
+                delay: componentIndex !== 0 ? 0.5 : 0,
+                type: 'spring',
+                duration: 1.5
+              }}
+            >
               <SimpleText content={content} />
-            </div>
+            </motion.div>
           )}
           <div className='w-full flex flex-wrap mt-10'>
-            <div className='w-full lg:w-1/2 text-left'>
+            <motion.div 
+              className='w-full lg:w-1/2 text-left'
+              initial={{ 
+                opacity: 0,
+                scale: 0.95
+              }}
+              whileInView={{ 
+                opacity: 1,
+                scale: 1
+              }}
+              viewport={{ once: true }} 
+              transition={{ 
+                delay: componentIndex !== 0 ? 0.5 : 0,
+                type: 'spring',
+                duration: 1.5
+              }}
+            >
               <Accordion type="single" className='space-y-3' collapsible>
                 {qa && qa.map((item, index) => {
                   return (
@@ -54,8 +86,24 @@ const QaBlock: React.FC<QaBlockType> = ({
                   )
                 })}
               </Accordion>
-            </div>
-            <div className='w-full lg:w-1/2 flex justify-center lg:justify-end items-center gap-16'>
+            </motion.div>
+            <motion.div 
+              className='w-full lg:w-1/2 flex justify-center lg:justify-end items-center gap-16'
+              initial={{ 
+                opacity: 0,
+                scale: 0.95
+              }}
+              whileInView={{ 
+                opacity: 1,
+                scale: 1
+              }}
+              viewport={{ once: true }} 
+              transition={{ 
+                delay: componentIndex !== 0 ? 0.5 : 0,
+                type: 'spring',
+                duration: 1.5
+              }}
+            >
               {cta && cta.active && (
                 <div className='mt-5 flex justify-center md:justify-start'>
                   <Route data={cta.route} className='flex'>
@@ -65,7 +113,7 @@ const QaBlock: React.FC<QaBlockType> = ({
                   </Route>
                 </div>
               )}
-            </div>
+            </motion.div>
           </div>
         </div>
         {componentIndex !== lastComponent && (

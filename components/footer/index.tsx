@@ -1,7 +1,6 @@
 'use client'
 
 // Tools
-import Image from "next/image"
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { client } from '@/sanity/lib/client'
@@ -10,7 +9,6 @@ import { BiLogoLinkedin } from "react-icons/bi";
 // Types
 import { NavigationType } from "@/types/documents/navigation-type"
 import { SocialType } from "@/types/components/social-type"
-import { SiteType } from "@/types/documents/site-type"
 
 // Queries
 import { getSite } from "@/sanity/queries/documents/site-query"
@@ -43,8 +41,6 @@ const Footer: React.FC<FooterProps> = ({
   // set copywrite year
   const date = new Date()
   const year = date.getFullYear()
-
-  console.log(socials)
 
   return (
     <footer className='flex flex-col items-center py-10 gap-y-10'>

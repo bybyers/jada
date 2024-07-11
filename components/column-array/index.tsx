@@ -1,6 +1,7 @@
 'use client'
 
 // Tools
+import { motion } from "framer-motion"
 
 // Types
 import { ColumnArrayType } from "@/types/arrays/column-array-type"
@@ -26,7 +27,24 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
         {row.columns.map((column: ColumnType, index) => {
 
           return (
-            <div key={index} className='mt-10 lg:mt-0 w-full xl:max-w-sm 2xl:max-w-md flex flex-col gap-y-8 content items-center '>
+            <motion.div 
+              key={`column-${index}`} 
+              className='mt-10 lg:mt-0 w-full xl:max-w-sm 2xl:max-w-md flex flex-col gap-y-8 content items-center '
+              initial={{ 
+                opacity: 0,
+                scale: 0.95
+              }}
+              whileInView={{ 
+                opacity: 1,
+                scale: 1
+              }}
+              viewport={{ once: true }} 
+              transition={{ 
+                delay: 0+index*0.5,
+                type: 'spring',
+                duration: 1.5
+              }}
+            >
               {column.image && (
                 <div className={`${columnLength > 2 ? 'w-24' : 'w-28'} mb-5 p-4 rounded-3xl shadow-white/40 shadow`}>
                   <SanityImage
@@ -45,7 +63,7 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
                   <SimpleText content={column.content} />
                 </div>
               )}
-            </div>
+            </motion.div>
           )
         })}
       </div>

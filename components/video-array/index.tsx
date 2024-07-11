@@ -1,17 +1,13 @@
 'use client'
 
 // Tools
+import { motion } from "framer-motion"
 
 // Types
-import { ColumnArrayType } from "@/types/arrays/column-array-type"
-import { ColumnType } from "@/types/objects/column-type"
-
 import { VideoColumnArrayType } from "@/types/arrays/video-column-array-type"
 import { VideoColumnType } from "@/types/objects/video-column-type"
 
 // Components
-import SimpleText from "../simple-text"
-import SanityImage from "../sanity-image"
 
 interface VideoColumnArrayProps {
   row: VideoColumnArrayType 
@@ -29,13 +25,30 @@ const VideoArray: React.FC<VideoColumnArrayProps> = ({
         {row.columns.map((column: VideoColumnType, index) => {
 
           return (
-            <div key={index} className={`mt-10 lg:mt-0 w-full ${columnLength < 3 ? 'max-w-xl 2xl:max-w-2xl' : 'max-w-sm px-5'} flex flex-col gap-y-8 content items-center`}>
+            <motion.div 
+              key={`video-column-${index}`} 
+              className={`mt-10 lg:mt-0 w-full ${columnLength < 3 ? 'max-w-xl 2xl:max-w-2xl' : 'max-w-sm px-5'} flex flex-col gap-y-8 content items-center`}
+              initial={{ 
+                opacity: 0,
+                scale: 0.95
+              }}
+              whileInView={{ 
+                opacity: 1,
+                scale: 1
+              }}
+              viewport={{ once: true }} 
+              transition={{ 
+                delay: 0+index*0.5,
+                type: 'spring',
+                duration: 1.5
+              }}   
+            >
               {column.video && (
                 <div>
                   <video src={column.video.asset.url} preload='auto' controls={true} />
                 </div>
               )}
-            </div>
+            </motion.div>
           )
         })}
       </div>

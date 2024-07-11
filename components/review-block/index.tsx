@@ -45,7 +45,24 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
 
               
               return (
-                <div key={index} className='review text-balance'>
+                <motion.div 
+                  key={`review-${index}`} 
+                  className='review text-balance'
+                  initial={{ 
+                    opacity: 0,
+                    scale: 0.95
+                  }}
+                  whileInView={{ 
+                    opacity: 1,
+                    scale: 1
+                  }}
+                  viewport={{ once: true }} 
+                  transition={{ 
+                    delay: 0+index*0.5,
+                    type: 'spring',
+                    duration: 1.5
+                  }}  
+                >
                   <div className='w-full xl:max-w-sm 2xl:max-w-md flex flex-col items-center gap-y-10'>
                     <div className='space-y-3'>
                       <Avatar>
@@ -68,7 +85,7 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
                       <p className='2xl:text-lg'>{review.title}</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               )
             })}
           </div>

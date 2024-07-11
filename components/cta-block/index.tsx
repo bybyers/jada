@@ -30,18 +30,50 @@ const CtaBlock: React.FC<CtaBlockType> = ({
       >
         <div className='flex flex-col text-center items-center w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12'>
           {content && (
-            <div className='content'>
+            <motion.div 
+              className='content'
+              initial={{ 
+                opacity: 0,
+                scale: 0.95
+              }}
+              whileInView={{ 
+                opacity: 1,
+                scale: 1
+              }}
+              viewport={{ once: true }} 
+              transition={{ 
+                delay: componentIndex !== 0 ? 0.5 : 0,
+                type: 'spring',
+                duration: 1.5
+              }}
+            >
               <SimpleText content={content} />
-            </div>
+            </motion.div>
           )}
           {cta && cta.active && (
-            <div className='mt-5 flex justify-center md:justify-start'>
+            <motion.div 
+              className='mt-5 flex justify-center md:justify-start'
+              initial={{ 
+                opacity: 0,
+                scale: 0.95
+              }}
+              whileInView={{ 
+                opacity: 1,
+                scale: 1
+              }}
+              viewport={{ once: true }} 
+              transition={{ 
+                delay: componentIndex !== 0 ? 0.5 : 0,
+                type: 'spring',
+                duration: 1.5
+              }}
+            >
               <Route data={cta.route} className='flex'>
                 <Button variant='default' fontSize='lg' size='lg'>
                   {cta.route.title}
                 </Button>
               </Route>
-            </div>
+            </motion.div>
           )}
         </div>
         {componentIndex !== lastComponent && (
