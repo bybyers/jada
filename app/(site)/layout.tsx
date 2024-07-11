@@ -4,7 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils"
 import { VisualEditing } from "next-sanity"
 import { draftMode } from "next/headers"
-
+import Template from "./template"
 
 
 export const metadata: Metadata = {
@@ -19,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body 
+      <Template 
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
@@ -34,7 +34,7 @@ export default function RootLayout({
         )}
         {children}
         {draftMode().isEnabled && <VisualEditing />}
-      </body>
+      </Template>
     </html>
   );
 }
