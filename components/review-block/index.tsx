@@ -7,6 +7,7 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar"
+import { motion } from "framer-motion"
 
 // Types
 
@@ -73,7 +74,13 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
           </div>
         </div>
         {componentIndex !== lastComponent && (
-          <div className='w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-[#53546d] to-indigo-950' />
+          <motion.div 
+            className='w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-[#53546d] to-indigo-950' 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }} 
+            transition={{ delay: 0.25 }}
+          />
         )}
       </section>
     )

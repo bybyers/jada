@@ -1,6 +1,7 @@
 'use client'
 
 // Tools
+import { motion } from "framer-motion"
 
 // Types
 import { ColumnBlockType } from "@/types/components/column-block-type"
@@ -31,9 +32,25 @@ const ColumnBlock: React.FC<ColumnBlockType> = ({
       >
         <div className='flex flex-col gap-y-16 text-center items-center w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5'>
           {content && (
-            <div className='content'>
+            <motion.div 
+              className='content'
+              initial={{ 
+                opacity: 0,
+                scale: 0.95
+              }}
+              whileInView={{ 
+                opacity: 1,
+                scale: 1
+              }}
+              viewport={{ once: true }} 
+              transition={{ 
+                delay: 0.5,
+                type: 'spring',
+                duration: 1.5
+              }}
+            >
               <SimpleText content={content} />
-            </div>
+            </motion.div>
           )}
            {rows && rows.map((row, index) => { 
             return (
@@ -50,7 +67,13 @@ const ColumnBlock: React.FC<ColumnBlockType> = ({
            })}
         </div>
         {componentIndex !== lastComponent && (
-          <div className='w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-[#53546d] to-indigo-950' />
+          <motion.div 
+            className='w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl rounded-full h-1 bg-gradient-to-r from-[#53546d] to-indigo-950' 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }} 
+            transition={{ delay: 0.25 }}
+          />
         )}
       </section>
     )

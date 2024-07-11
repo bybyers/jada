@@ -50,6 +50,9 @@ dependencies:
   content:
     specifier: link:@sanity/util/content
     version: link:@sanity/util/content
+  framer-motion:
+    specifier: ^11.3.0
+    version: 11.3.0(react-dom@18.3.1)(react@18.3.1)
   lucide-react:
     specifier: ^0.395.0
     version: 0.395.0(react@18.3.1)
@@ -5895,6 +5898,25 @@ packages:
       tslib: 2.6.3
     optionalDependencies:
       '@emotion/is-prop-valid': 0.8.8
+    dev: false
+
+  /framer-motion@11.3.0(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-hjYjMUQaWuqilwRr5kC0CunHZFVMtKWHy/IdL/LPRBD0C491DKTvYwQRJ5qRXEAOT+Rth7Vi4XBe4TA4bFOn3A==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+      tslib: 2.6.3
     dev: false
 
   /from2@2.3.0:
