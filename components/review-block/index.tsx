@@ -7,7 +7,8 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 // Types
 
@@ -27,6 +28,19 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
   titles,
   reviews
 }) => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (titles) {
+      const id = setInterval(() => {
+        setIndex((state) => {
+          if (state >= titles.length - 1) return 0;
+          return state + 1;
+        });
+      }, 2000);
+      return () => clearInterval(id);
+    }
+  }, [titles]);
 
   if (active) {
     return (
@@ -35,11 +49,23 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
         className={`w-full ${componentIndex !== 0 && 'pt-16 lg:pt-24 xl:pt-36'} flex flex-col items-center`}
       >
         <div className='flex flex-col gap-y-24 text-center items-center w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl pb-16 lg:pb-24 xl:pb-36 px-5 lg:px-12 content'>
+        <div className='w-full relative flex justify-center pb-16 px-5'>
+        <AnimatePresence>
           {titles && titles.length > 0 && (
-            <div className='titles'>
-              <h2 className='text-4xl lg:text-5xl xl:text-6xl font-bold'>{titles[0]}</h2>
-            </div>
+            <motion.div 
+              className='titles'
+              key={titles[index]}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -20, opacity: 0 }}
+              transition={{ ease: "easeInOut" }}
+              style={{ position: "absolute" }}
+            >
+              <h2 className='text-4xl lg:text-5xl xl:text-6xl font-bold'>{titles[index]}</h2>
+            </motion.div>
           )}
+          </AnimatePresence>
+          </div>
           <div className='flex flex-wrap gap-y-16 w-full justify-between'>
             {reviews && reviews.map((review, index) => {
 
