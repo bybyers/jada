@@ -11,7 +11,7 @@ import { NavigationType } from "@/types/documents/navigation-type"
 import { SocialType } from "@/types/components/social-type"
 
 // Queries
-import { getSite } from "@/sanity/queries/documents/site-query"
+import { SiteQuery } from "@/sanity/queries/documents/site-query"
 
 // Components
 import FooterNav from "../navigation/footer"
@@ -29,7 +29,7 @@ const Footer: React.FC<FooterProps> = ({
 
   useEffect(() => {
 		const fetchSocial = async () => {
-			const data = await client.fetch(getSite)
+			const data = await client.fetch(SiteQuery)
       console.log(data)
       const socials = data[0].social
 			setSocials(socials)
