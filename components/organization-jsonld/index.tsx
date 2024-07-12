@@ -26,10 +26,7 @@ const OrgJsonLd = () => {
 						addressCountry: siteData.addressCountry,
 					},
 					sameAs: [
-						siteData.social?.facebook,
-						siteData.social?.instagram,
 						siteData.social?.linkedin,
-						siteData.social?.tiktok,
 					],
 					description: siteData.seo.metaDesc,
 				}
