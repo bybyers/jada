@@ -11,6 +11,7 @@ import { SiteQuery } from '@/sanity/queries/documents/site-query'
 // Components
 import Page from "@/components/page-single"
 import { urlFor } from "@/components/sanity-image/url"
+import OrgJsonLd from "@/components/organization-jsonld"
 
 export const generateMetadata = async (): Promise<Metadata> => {
 	const global = await client.fetch(SiteQuery)
@@ -55,6 +56,9 @@ export default async function Home() {
   })
 
   return (
-    <Page page={page} /> 
+    <>
+			<OrgJsonLd />
+			<Page page={page} /> 
+		</>
   );
 }

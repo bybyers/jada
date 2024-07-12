@@ -11,11 +11,6 @@ const site = defineType({
 			type: 'string',
 		}),
 		defineField({
-			name: 'altTitle',
-			title: 'Alternative Title',
-			type: 'string',
-		}),
-		defineField({
 			name: 'foundingYear',
 			title: 'Founding Year',
 			type: 'string',
