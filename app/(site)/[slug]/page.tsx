@@ -85,8 +85,9 @@ export const generateMetadata = async (props: Props): Promise<Metadata> => {
 
 export default async function SinglePage({ params }: { params: QueryParams }) {
   const page = await sanityFetch<SanityDocument>({ query: PageQuery, params })
-
-  if (!page) {
+	const isDraftMode = draftMode().isEnabled
+	
+  if (!page && !isDraftMode) {
     return notFound()
   }
 
