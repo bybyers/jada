@@ -7,16 +7,16 @@ export default function Template({
   className,
 }: {
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }) {
   return (
-    <motion.body
+    <motion.div
       initial={{ y: 20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ ease: "easeInOut", duration: 0.75 }}
       className={className}
     >
       {children}
-    </motion.body>
+    </motion.div>
   );
 }

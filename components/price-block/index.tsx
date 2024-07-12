@@ -2,7 +2,7 @@
 
 // Tools
 import Link from 'next/link'
-import { inter } from '../../app/fonts'
+import { inter } from '../../app/(site)/fonts'
 import { motion } from 'framer-motion'
 
 // Types
