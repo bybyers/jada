@@ -23,13 +23,13 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
 
   if (row.columns && row.columns.length > 0) {
     return (
-      <div className={`column-array w-full flex flex-wrap xl:flex-nowrap ${columnLength <= 2 ? 'justify-around' : 'justify-between gap-x-14'}  gap-y-16`}>
+      <div className={`column-array w-full flex flex-wrap xl:flex-nowrap ${columnLength <= 2 ? 'justify-around' : 'justify-center xl:justify-between gap-x-14'}  gap-y-16`}>
         {row.columns.map((column: ColumnType, index) => {
 
           return (
             <motion.div 
               key={`column-${index}`} 
-              className='mt-10 lg:mt-0 w-full xl:max-w-sm 2xl:max-w-md flex flex-col gap-y-8 content items-center '
+              className='mt-10 lg:mt-0 w-full lg:max-w-sm 2xl:max-w-md flex flex-col gap-y-8 content items-center '
               initial={{ 
                 opacity: 0,
                 scale: 0.95

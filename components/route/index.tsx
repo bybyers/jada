@@ -13,34 +13,34 @@ interface RouteProps {
 }
 
 const Route: React.FC<RouteProps> = ({ data, className, children }) => {
-	if (data.pageRoute) {
+	if (data?.pageRoute) {
 		return (
 			<Link
-				href={`/${data.pageRoute.slug.current}`}
-				target={data.blank ? '_blank' : '_self'}
+				href={`/${data?.pageRoute.slug.current}`}
+				target={data?.blank ? '_blank' : '_self'}
         className={className}
 			>
 				{children}
 			</Link>
 		)
-	} else if (data.route) {
+	} else if (data?.route) {
 		return (
-			<Link href={`/${data.route}`} target={data.blank ? '_blank' : '_self'} className={className}>
+			<Link href={`/${data?.route}`} target={data?.blank ? '_blank' : '_self'} className={className}>
 				{children}
 			</Link>
 		)
-	} else if (data.anchor) {
+	} else if (data?.anchor) {
 		return (
-			<Link href={`#${data.anchor}`} className={className}>
+			<Link href={`#${data?.anchor}`} className={className}>
 				{children}
 			</Link>
 		)
 	}else {
 		return (
 			<a
-				href={data.link}
-				target={data.blank ? '_blank' : '_self'}
-				rel={data.nofollow ? 'noopener noreferrer' : 'external'}
+				href={data?.link}
+				target={data?.blank ? '_blank' : '_self'}
+				rel={data?.nofollow ? 'noopener noreferrer' : 'external'}
         className={className}
 			>
 				{children}

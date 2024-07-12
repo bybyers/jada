@@ -30,7 +30,6 @@ const Footer: React.FC<FooterProps> = ({
   useEffect(() => {
 		const fetchSocial = async () => {
 			const data = await client.fetch(SiteQuery)
-      console.log(data)
       const socials = data[0].social
 			setSocials(socials)
 		}

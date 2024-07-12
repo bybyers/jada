@@ -70,7 +70,7 @@ const CtaBlock: React.FC<CtaBlockType> = ({
             >
               <Route data={cta.route} className='flex'>
                 <Button variant='default' fontSize='lg' size='lg'>
-                  {cta.route.title}
+                  {cta?.route?.title ? cta?.route?.title : 'Learn More'}
                 </Button>
               </Route>
             </motion.div>

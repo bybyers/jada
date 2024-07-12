@@ -7,5 +7,7 @@ export type TextBlockType = {
 	componentIndex?: number
 	lastComponent?: number
 	contentAlignment: 'left' | 'center' | 'right'
-	content: NormalTextType
+	content: {
+		text: NormalTextType
+	}
 }

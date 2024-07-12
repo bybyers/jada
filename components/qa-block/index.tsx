@@ -78,9 +78,11 @@ const QaBlock: React.FC<QaBlockType> = ({
                 {qa && qa.map((item, index) => {
                   return (
                     <AccordionItem key={`qa-${index}`} value={`qa-${index}`}>
-                      <AccordionTrigger className='text-left text-2xl'>{item.question}</AccordionTrigger>
+                      <AccordionTrigger className='text-left text-2xl'>{item.question ? item.question : ''}</AccordionTrigger>
                       <AccordionContent className='content'>
-                        <SimpleText content={item.answer} />
+                        {item.answer && (
+                          <SimpleText content={item.answer} />
+                        )}
                       </AccordionContent>
                     </AccordionItem>
                   )
@@ -108,7 +110,7 @@ const QaBlock: React.FC<QaBlockType> = ({
                 <div className='mt-5 flex justify-center md:justify-start'>
                   <Route data={cta.route} className='flex'>
                     <Button variant='default' fontSize='lg' size='lg'>
-                      {cta.route.title}
+                      {cta?.route?.title ? cta?.route?.title : 'Learn More'}
                     </Button>
                   </Route>
                 </div>

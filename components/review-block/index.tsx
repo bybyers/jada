@@ -66,14 +66,14 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
           )}
           </AnimatePresence>
           </div>
-          <div className='flex flex-wrap gap-y-16 w-full justify-between'>
+          <div className='flex flex-wrap gap-y-16 w-full justify-center xl:justify-between'>
             {reviews && reviews.map((review, index) => {
 
               
               return (
                 <motion.div 
                   key={`review-${index}`} 
-                  className='review text-balance'
+                  className='review text-balance lg:max-w-sm 2xl:max-w-md'
                   initial={{ 
                     opacity: 0,
                     scale: 0.95
@@ -91,10 +91,12 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
                 >
                   <div className='w-full xl:max-w-sm 2xl:max-w-md flex flex-col items-center gap-y-10'>
                     <div className='space-y-3'>
-                      <Avatar>
-                        <AvatarImage src={review.image?.asset.url} alt="@shadcn" />
-                        <AvatarFallback>{review.name}</AvatarFallback>
-                      </Avatar>
+                      {review?.image?.asset.url && (
+                        <Avatar>
+                          <AvatarImage src={review?.image?.asset.url} alt="@shadcn" />
+                          <AvatarFallback>{review?.name}</AvatarFallback>
+                        </Avatar>
+                      )}
                       <div className='flex gap-x-1 text-[#8f80c6]'>
                         <AiFillStar />
                         <AiFillStar />
@@ -103,12 +105,14 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
                         <AiFillStar />
                       </div>
                     </div>
-                    <div className='2xl:text-lg space-y-2'>
-                      <SimpleText content={review.content} />
-                    </div>
+                    {review?.content && (
+                      <div className='2xl:text-lg space-y-2'>
+                        <SimpleText content={review?.content} />
+                      </div>
+                    )}
                     <div className='flex flex-col text-center'>
-                      <h3 className='2xl:text-2xl font-bold'>{review.name}</h3>
-                      <p className='2xl:text-lg'>{review.title}</p>
+                      {review?.name && (<h3 className='2xl:text-2xl font-bold'>{review?.name}</h3>)}
+                      {review?.title && (<p className='2xl:text-lg'>{review?.title}</p>)}
                     </div>
                   </div>
                 </motion.div>

@@ -81,9 +81,9 @@ const PriceBlock: React.FC<PriceBlockType> = ({
                 <div key={index} className=' px-5 md:px-16 py-5 md:py-10 first:rounded-tl-3xl md:first:rounded-bl-3xl first:rounded-tr-3xl md:first:rounded-tr-none last:rounded-tr-none md:last:rounded-tr-3xl last:rounded-br-3xl last:rounded-bl-3xl md:last:rounded-bl-none md:last:rounded-bl-0 border-[#c8a7f2]  first:border-t-2 md:border-t-2 border-b-2 first:border-r-2 md:first:border-r-0 border-l-2 last:border-r-2 md:last:border-r-2 shadow shadow-white'>
                   <div className='w-full max-w-md flex flex-col items-center gap-y-2'>
                     <div className='space-y-5'>
-                      <p className={`text-3xl font-medium bg-gradient-to-b ${last ? 'from-[#9c83fe]' : 'from-[#d6d5d5]'} ${last ? 'to-[#f6f5f5]' : 'to-white'} text-transparent bg-clip-text`}>{column.title}</p>
-                      <h2 className={`text-7xl font-semibold bg-gradient-to-b ${last ? 'from-[#9c83fe]' : 'from-[#d6d5d5]'} ${last ? 'to-[#f6f5f5]' : 'to-white'} ${inter.className} text-transparent bg-clip-text`}>${column.price}</h2>
-                      <p>{column.offer}</p>
+                      {column.title && (<p className={`text-3xl font-medium bg-gradient-to-b ${last ? 'from-[#9c83fe]' : 'from-[#d6d5d5]'} ${last ? 'to-[#f6f5f5]' : 'to-white'} text-transparent bg-clip-text`}>{column.title}</p>)}
+                      {column.price && (<h2 className={`text-7xl font-semibold bg-gradient-to-b ${last ? 'from-[#9c83fe]' : 'from-[#d6d5d5]'} ${last ? 'to-[#f6f5f5]' : 'to-white'} ${inter.className} text-transparent bg-clip-text`}>${column.price}</h2>)}
+                      {column.offer && (<p>{column.offer}</p>)}
                     </div>
                     <div className='space-y-5 mt-5'> 
                       {column.perks && column.perks.map((perk, index) => {
@@ -121,38 +121,40 @@ const PriceBlock: React.FC<PriceBlockType> = ({
               )
             })}
           </motion.div>
-          <motion.div 
-            className='flex flex-col items-center w-full border-[#c8a7f2] border-2 rounded-3xl p-5 lg:p-10'
-            initial={{ 
-              opacity: 0,
-              scale: 0.95
-            }}
-            whileInView={{ 
-              opacity: 1,
-              scale: 1
-            }}
-            viewport={{ once: true }} 
-            transition={{ 
-              delay: componentIndex !== 0 ? 0.5 : 0,
-              type: 'spring',
-              duration: 1.5
-            }}
-          >
-            {ctaContent && (
-              <div className='content bg-gradient-to-b from-[#d6d5d5] to-white text-transparent bg-clip-text'>
-                <SimpleText content={ctaContent} />
-              </div>
-            )}
-            {cta && cta.active && (
-              <div className='mt-5 flex justify-center md:justify-start'>
-                <Route data={cta.route} className='flex'>
-                  <Button variant='secondary' fontSize='lg' size='lg'>
-                    {cta.route.title}
-                  </Button>
-                </Route>
-              </div>
-            )}
-          </motion.div>
+          {ctaContent && (
+            <motion.div 
+              className='flex flex-col items-center w-full border-[#c8a7f2] border-2 rounded-3xl p-5 lg:p-10'
+              initial={{ 
+                opacity: 0,
+                scale: 0.95
+              }}
+              whileInView={{ 
+                opacity: 1,
+                scale: 1
+              }}
+              viewport={{ once: true }} 
+              transition={{ 
+                delay: componentIndex !== 0 ? 0.5 : 0,
+                type: 'spring',
+                duration: 1.5
+              }}
+            >
+              {ctaContent && (
+                <div className='content bg-gradient-to-b from-[#d6d5d5] to-white text-transparent bg-clip-text'>
+                  <SimpleText content={ctaContent} />
+                </div>
+              )}
+              {cta && cta.active && (
+                <div className='mt-5 flex justify-center md:justify-start'>
+                  <Route data={cta.route} className='flex'>
+                    <Button variant='secondary' fontSize='lg' size='lg'>
+                      {cta?.route?.title ? cta?.route?.title : 'Learn More'}
+                    </Button>
+                  </Route>
+                </div>
+              )}
+            </motion.div>
+          )}
         </div>
         {componentIndex !== lastComponent && (
           <motion.div 

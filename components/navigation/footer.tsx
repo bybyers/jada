@@ -33,7 +33,7 @@ const FooterNav: React.FC<NavProps> = ({
           >
             <Route data={item} className='flex'>
               <Button variant="secondary" size="navigation">
-                {item.title}
+                {item.title ? item.title : 'Needs title'}
               </Button>
             </Route>
           </NavigationMenuItem>

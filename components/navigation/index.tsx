@@ -33,7 +33,7 @@ const Nav: React.FC<NavProps> = ({
           >
             <Route data={item} className='flex'>
               <Button variant="outline" size="navigation">
-                {item.title}
+                {item.title ? item.title : 'Needs title'}
               </Button>
             </Route>
           </NavigationMenuItem>

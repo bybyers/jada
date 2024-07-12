@@ -85,6 +85,9 @@ export const PageQuery = groq`
           ${imageQuery}
         },
       },
+      _type == 'textBlock' => {
+        ...,
+      }
     }
   }
 `
