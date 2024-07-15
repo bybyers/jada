@@ -2,6 +2,8 @@
 
 // Tools
 import { motion } from "framer-motion"
+import { isMobile } from 'react-device-detect';
+import { useEffect, useState } from "react";
 
 // Types
 import { ColumnArrayType } from "@/types/arrays/column-array-type"
