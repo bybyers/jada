@@ -7,6 +7,10 @@ import Footer from "@/components/footer"
 import Sections from "@/components/sections"
 
 
+// Stop Caching
+export const fetchCache = 'force-no-store';
+
+
 
 export default function Page({ page }: { page: SanityDocument }) {
   const { pageNav, sections } = page
