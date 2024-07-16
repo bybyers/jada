@@ -7,6 +7,7 @@ import {
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
 import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
 
 
 // Types
@@ -32,9 +33,26 @@ const FooterNav: React.FC<NavProps> = ({
             id={'header' + index}
           >
             <Route data={item} className='flex'>
-              <Button variant="secondary" size="navigation">
-                {item.title ? item.title : 'Needs title'}
-              </Button>
+              <motion.div
+                initial={{ 
+                  scale: 1
+                }}
+                whileHover={{ 
+                  scale: 1.05
+                }}
+                whileTap={{ 
+                  scale: 0.95
+                }}
+                transition={{ 
+                  type: 'spring',
+                  duration: 0.5
+                }}
+                className='flex w-full'
+              >
+                <Button variant="secondary" size="navigation">
+                  {item.title ? item.title : 'Needs title'}
+                </Button>
+              </motion.div>
             </Route>
           </NavigationMenuItem>
         ))}

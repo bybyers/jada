@@ -106,9 +106,26 @@ const PriceBlock: React.FC<PriceBlockType> = ({
                       {column.payment && (
                         <div className='mt-16 flex justify-center md:justify-start'>
                           <Link href={column.payment} >
-                            <Button variant={`${column.featured ? 'gradient' : 'secondary'}`} >
-                              Get Started
-                            </Button>
+                            <motion.div
+                              initial={{ 
+                                scale: 1
+                              }}
+                              whileHover={{ 
+                                scale: 1.05
+                              }}
+                              whileTap={{ 
+                                scale: 0.95
+                              }}
+                              transition={{ 
+                                type: 'spring',
+                                duration: 0.5
+                              }}
+                              className='flex w-full'
+                            >
+                              <Button variant={`${column.featured ? 'gradient' : 'secondary'}`} >
+                                Get Started
+                              </Button>
+                            </motion.div>
                           </Link>
                         </div>
                       )}
@@ -151,9 +168,26 @@ const PriceBlock: React.FC<PriceBlockType> = ({
               {cta && cta.active && (
                 <div className='mt-5 flex justify-center md:justify-start'>
                   <Route data={cta.route} className='flex'>
-                    <Button variant='secondary' fontSize='lg' size='lg'>
-                      {cta?.route?.title ? cta?.route?.title : 'Learn More'}
-                    </Button>
+                    <motion.div
+                      initial={{ 
+                        scale: 1
+                      }}
+                      whileHover={{ 
+                        scale: 1.05
+                      }}
+                      whileTap={{ 
+                        scale: 0.95
+                      }}
+                      transition={{ 
+                        type: 'spring',
+                        duration: 0.5
+                      }}
+                      className='flex w-full'
+                    >
+                      <Button variant='secondary' fontSize='lg' size='lg'>
+                        {cta?.route?.title ? cta?.route?.title : 'Learn More'}
+                      </Button>
+                    </motion.div>
                   </Route>
                 </div>
               )}

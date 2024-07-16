@@ -109,9 +109,26 @@ const QaBlock: React.FC<QaBlockType> = ({
               {cta && cta.active && (
                 <div className='mt-5 flex justify-center md:justify-start'>
                   <Route data={cta.route} className='flex'>
-                    <Button variant='default' fontSize='lg' size='lg'>
-                      {cta?.route?.title ? cta?.route?.title : 'Learn More'}
-                    </Button>
+                    <motion.div
+                      initial={{ 
+                        scale: 1
+                      }}
+                      whileHover={{ 
+                        scale: 1.05
+                      }}
+                      whileTap={{ 
+                        scale: 0.95
+                      }}
+                      transition={{ 
+                        type: 'spring',
+                        duration: 0.5
+                      }}
+                      className='flex w-full'
+                    >
+                      <Button variant='default' fontSize='lg' size='lg'>
+                        {cta?.route?.title ? cta?.route?.title : 'Learn More'}
+                      </Button>
+                    </motion.div>
                   </Route>
                 </div>
               )}
