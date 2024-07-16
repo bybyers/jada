@@ -23,12 +23,7 @@ export const PageQuery = groq`
       // Handling all the blocks and their possible fields
       _type == 'ctaBlock' => {
         ...,
-        cta {
-          ...,
-          route {
-            ${routeQuery}
-          }
-        },
+       
         image {
           ${imageQuery}
         },
