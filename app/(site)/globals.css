@@ -52,6 +52,10 @@ html {
   scroll-padding-top: 4rem;
 }
 
-main {
-  
+h1 {
+  @apply bg-gradient-to-b from-[#d6d5d5] to-[#f6f5f5] text-transparent bg-clip-text;
+}
+
+h2 {
+  @apply bg-gradient-to-b from-[#d6d5d5] to-[#f6f5f5] text-transparent bg-clip-text;
 }
