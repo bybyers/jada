@@ -20,6 +20,11 @@ interface ColumnArrayProps {
 const ColumnArray: React.FC<ColumnArrayProps> = ({
   row
 }) => {
+  const [isMobileView, setIsMobileView] = useState<boolean>(false)
+
+  useEffect(() => {
+    setIsMobileView(isMobile)
+  }, [])
 
   const columnLength = row.columns.length
 
@@ -42,7 +47,7 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
               }}
               viewport={{ once: true }} 
               transition={{ 
-                delay: 0+index*0.5,
+                delay: !isMobileView ? 0+index*0.5 : 0,
                 type: 'spring',
                 duration: 1.5
               }}

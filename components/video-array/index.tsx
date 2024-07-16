@@ -2,6 +2,8 @@
 
 // Tools
 import { motion } from "framer-motion"
+import { isMobile } from 'react-device-detect';
+import { useEffect, useState } from "react";
 
 // Types
 import { VideoColumnArrayType } from "@/types/arrays/video-column-array-type"
@@ -16,6 +18,12 @@ interface VideoColumnArrayProps {
 const VideoArray: React.FC<VideoColumnArrayProps> = ({
   row
 }) => {
+  const [isMobileView, setIsMobileView] = useState<boolean>(false)
+
+  useEffect(() => {
+    setIsMobileView(isMobile)
+  }, [])
+
 
   const columnLength = row.columns.length
 
@@ -38,7 +46,7 @@ const VideoArray: React.FC<VideoColumnArrayProps> = ({
               }}
               viewport={{ once: true }} 
               transition={{ 
-                delay: 0+index*0.5,
+                delay: !isMobileView ? 0+index*0.5 : 0,
                 type: 'spring',
                 duration: 1.5
               }}   

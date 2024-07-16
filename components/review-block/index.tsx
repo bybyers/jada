@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/avatar"
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { isMobile } from 'react-device-detect';
 
 // Types
 
@@ -29,6 +30,11 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
   reviews
 }) => {
   const [index, setIndex] = useState(0);
+  const [isMobileView, setIsMobileView] = useState<boolean>(false)
+
+  useEffect(() => {
+    setIsMobileView(isMobile)
+  }, [])
 
   useEffect(() => {
     if (titles) {
@@ -84,7 +90,7 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
                   }}
                   viewport={{ once: true }} 
                   transition={{ 
-                    delay: 0+index*0.5,
+                    delay: !isMobileView ? 0+index*0.5 : 0,
                     type: 'spring',
                     duration: 1.5
                   }}  
