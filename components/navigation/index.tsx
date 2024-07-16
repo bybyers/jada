@@ -25,7 +25,7 @@ const Nav: React.FC<NavProps> = ({
 
   return (
     <NavigationMenu>
-			<NavigationMenuList className='flex flex-wrap gap-y-2 lg:gap-x-10'>
+			<NavigationMenuList className='flex flex-wrap gap-y-2 space-x-0 gap-x-2 lg:gap-x-10'>
         {data.items?.map((item: any, index: number) => (
           <NavigationMenuItem 
             key={'header' + index}

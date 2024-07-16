@@ -43,8 +43,11 @@ export const PageQuery = groq`
               ${imageQuery}
             },
             video {
-            ${imageQuery}
-          },
+              ${imageQuery}
+              poster {
+                ${imageQuery}
+              }
+            },
             content[] {
               ... // Assuming there can be rich text or other fields in content
             }
@@ -76,6 +79,9 @@ export const PageQuery = groq`
           ...,
           video {
             ${imageQuery}
+            poster {
+              ${imageQuery}
+            }
           },
         }
       },
@@ -83,6 +89,9 @@ export const PageQuery = groq`
         ...,
         video {
           ${imageQuery}
+          poster {
+            ${imageQuery}
+          }
         },
       },
       _type == 'textBlock' => {

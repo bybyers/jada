@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({
     <header 
       className='sticky top-0 z-50 w-full flex justify-center pt-10 pb-4 mb-12 bg-background'
     >
-      <div className={`flex ${items ? 'flex-col gap-y-5 lg:gap-y-10  items-center justify-center lg:justify-between pb-10 lg:pb-0 lg:pr-10' : 'justify-center'} w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl`}>
+      <div className={`flex ${items ? 'flex-col gap-y-5 lg:gap-y-10  items-center justify-center lg:justify-between md:pb-10 lg:pb-0 lg:pr-10' : 'justify-center'} w-full max-w-6xl xl:max-w-7xl 2xl:max-w-8xl`}>
         <Link href='/' className='w-24 lg:w-auto'>
           <Image src={Logo} alt='Logo' width={190} height={190} />
         </Link>

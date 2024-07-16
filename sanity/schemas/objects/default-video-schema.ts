@@ -12,7 +12,13 @@ const defaultVideo = defineField({
 			name: 'alt',
 			type: 'string',
 			validation: Rule => Rule.required(),
-		})
+		}),
+		defineField({
+			title: 'Poster',
+			description: 'A preview image for the video',
+			name: 'poster',
+			type: 'image',
+		}),
 	],
 	preview: {
 		select: {

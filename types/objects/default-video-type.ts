@@ -1,5 +1,8 @@
+import { DefaultImageType } from "./default-img-type"
+
 export type DefaultVideoType = {
 	alt: string
+	poster: DefaultImageType
 	shadow: boolean
 	caption: string
 	asset: {

@@ -53,7 +53,7 @@ const VideoArray: React.FC<VideoColumnArrayProps> = ({
             >
               {column.video && (
                 <div>
-                  <video src={column.video.asset.url} preload='auto' controls={true} />
+                  <video src={column.video.asset.url} poster={column.video.poster?.asset.url} preload='auto' controls={true} />
                 </div>
               )}
             </motion.div>
