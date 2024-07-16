@@ -82,8 +82,8 @@ const PriceBlock: React.FC<PriceBlockType> = ({
                   <div className='w-full h-full flex flex-col items-center justify-between gap-y-2'>
                     <div className='price-content'>
                       <div className='space-y-5'>
-                        {column.title && (<p className={`text-3xl font-medium bg-gradient-to-b ${last ? 'from-[#9c83fe]' : 'from-[#d6d5d5]'} ${last ? 'to-[#f6f5f5]' : 'to-white'} text-transparent bg-clip-text`}>{column.title}</p>)}
-                        {column.price && (<h2 className={`text-7xl font-semibold bg-gradient-to-b ${last ? 'from-[#9c83fe]' : 'from-[#d6d5d5]'} ${last ? 'to-[#f6f5f5]' : 'to-white'} ${inter.className} text-transparent bg-clip-text`}>${column.price}</h2>)}
+                        {column.title && (<p className={`text-3xl font-medium bg-gradient-to-b ${column.featured ? 'from-[#9c83fe]' : 'from-[#d6d5d5]'} ${column.featured ? 'to-[#f6f5f5]' : 'to-white'} text-transparent bg-clip-text`}>{column.title}</p>)}
+                        {column.price && (<h2 className={`text-7xl font-semibold bg-gradient-to-b ${column.featured ? 'from-[#9c83fe]' : 'from-[#d6d5d5]'} ${column.featured ? 'to-[#f6f5f5]' : 'to-white'} ${inter.className} text-transparent bg-clip-text`}>${column.price}</h2>)}
                         {column.offer && (<p>{column.offer}</p>)}
                       </div>
                       <div className='space-y-5 mt-5'> 
@@ -105,8 +105,8 @@ const PriceBlock: React.FC<PriceBlockType> = ({
                     <div className='price-payment flex flex-col items-center'>
                       {column.payment && (
                         <div className='mt-16 flex justify-center md:justify-start'>
-                          <Link href={column.payment}>
-                            <Button variant={`${last ? 'gradient' : 'secondary'}`}>
+                          <Link href={column.payment} >
+                            <Button variant={`${column.featured ? 'gradient' : 'secondary'}`} >
                               Get Started
                             </Button>
                           </Link>

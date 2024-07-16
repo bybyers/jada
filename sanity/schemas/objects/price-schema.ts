@@ -9,6 +9,12 @@ const price = defineType({
   type: "object",
   fields: [
     defineField({
+      name: 'featured',
+      type: 'boolean',
+      description: 'Show this price as purple',
+      initialValue: false,
+    }),
+    defineField({
       name: 'title',
       type: 'string',
     }),
