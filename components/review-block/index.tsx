@@ -95,27 +95,29 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
                     duration: 1.5
                   }}  
                 >
-                  <div className='w-full xl:max-w-sm 2xl:max-w-md flex flex-col items-center gap-y-10'>
-                    <div className='space-y-3'>
-                      {review?.image?.asset.url && (
-                        <Avatar>
-                          <AvatarImage src={review?.image?.asset.url} alt="@shadcn" />
-                          <AvatarFallback>{review?.name}</AvatarFallback>
-                        </Avatar>
+                  <div className='w-full h-full xl:max-w-sm 2xl:max-w-md flex flex-col items-center  justify-between gap-y-10'>
+                    <div className='review-title w-full flex flex-col items-center gap-y-10'>
+                      <div className='space-y-3'>
+                        {review?.image?.asset.url && (
+                          <Avatar>
+                            <AvatarImage src={review?.image?.asset.url} alt="@shadcn" />
+                            <AvatarFallback>{review?.name}</AvatarFallback>
+                          </Avatar>
+                        )}
+                        <div className='flex gap-x-1 text-[#8f80c6]'>
+                          <AiFillStar />
+                          <AiFillStar />
+                          <AiFillStar />
+                          <AiFillStar />
+                          <AiFillStar />
+                        </div>
+                      </div>
+                      {review?.content && (
+                        <div className='2xl:text-lg space-y-2'>
+                          <SimpleText content={review?.content} />
+                        </div>
                       )}
-                      <div className='flex gap-x-1 text-[#8f80c6]'>
-                        <AiFillStar />
-                        <AiFillStar />
-                        <AiFillStar />
-                        <AiFillStar />
-                        <AiFillStar />
-                      </div>
                     </div>
-                    {review?.content && (
-                      <div className='2xl:text-lg space-y-2'>
-                        <SimpleText content={review?.content} />
-                      </div>
-                    )}
                     <div className='flex flex-col text-center'>
                       {review?.name && (<h3 className='2xl:text-2xl font-bold'>{review?.name}</h3>)}
                       {review?.title && (<p className='2xl:text-lg'>{review?.title}</p>)}
