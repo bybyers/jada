@@ -57,7 +57,7 @@ const PriceBlock: React.FC<PriceBlockType> = ({
             </motion.div>
           )}
           <motion.div 
-            className='flex flex-wrap justify-center'
+            className='flex flex-wrap lg:flex-nowrap justify-center'
             initial={{ 
               opacity: 0,
               scale: 0.95
@@ -78,8 +78,8 @@ const PriceBlock: React.FC<PriceBlockType> = ({
               const last = index === columns.length - 1
 
               return (
-                <div key={index} className=' px-5 md:px-16 py-5 md:py-10 first:rounded-tl-3xl md:first:rounded-bl-3xl first:rounded-tr-3xl md:first:rounded-tr-none last:rounded-tr-none md:last:rounded-tr-3xl last:rounded-br-3xl last:rounded-bl-3xl md:last:rounded-bl-none md:last:rounded-bl-0 border-[#c8a7f2]  first:border-t-2 md:border-t-2 border-b-2 first:border-r-2 md:first:border-r-0 border-l-2 last:border-r-2 md:last:border-r-2 shadow shadow-white'>
-                  <div className='w-full max-w-md flex flex-col items-center gap-y-2'>
+                <div key={index} className='w-full max-w-md  px-5 md:px-16 py-5 md:py-10 first:rounded-tl-3xl md:first:rounded-bl-3xl first:rounded-tr-3xl md:first:rounded-tr-none last:rounded-tr-none md:last:rounded-tr-3xl last:rounded-br-3xl last:rounded-bl-3xl md:last:rounded-bl-none md:last:rounded-bl-0 border-[#c8a7f2]  first:border-t-2 md:border-t-2 border-b-2 first:border-r-2 md:first:border-r-0 border-l-2 last:border-r-2 md:last:border-r-2 shadow shadow-white'>
+                  <div className='w-full flex flex-col items-center gap-y-2'>
                     <div className='space-y-5'>
                       {column.title && (<p className={`text-3xl font-medium bg-gradient-to-b ${last ? 'from-[#9c83fe]' : 'from-[#d6d5d5]'} ${last ? 'to-[#f6f5f5]' : 'to-white'} text-transparent bg-clip-text`}>{column.title}</p>)}
                       {column.price && (<h2 className={`text-7xl font-semibold bg-gradient-to-b ${last ? 'from-[#9c83fe]' : 'from-[#d6d5d5]'} ${last ? 'to-[#f6f5f5]' : 'to-white'} ${inter.className} text-transparent bg-clip-text`}>${column.price}</h2>)}
