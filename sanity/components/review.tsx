@@ -14,7 +14,6 @@ const ReviewComponent = ({ document }: { document: any }) => {
 
   useEffect(() => {
     const fetchReviewImage = async () => {
-      console.log(document.displayed._id)
       if (document?.displayed.image) {
         const query = `*[_type == "review" && _id == $id]{
           ...,
@@ -27,7 +26,6 @@ const ReviewComponent = ({ document }: { document: any }) => {
         const params = { id: document.displayed._id }
         const data = await client.fetch(query, params)
         const image = data[0]?.image?.asset?.url
-        console.log(data)
         setReviewImage(image)
       }
     }
