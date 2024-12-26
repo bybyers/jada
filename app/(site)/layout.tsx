@@ -18,14 +18,14 @@ export default async function RootLayout({
       <body className="min-h-screen bg-background antialiased">
         <Template>
           {children}
+          <SanityLive />
+          {(await draftMode()).isEnabled && (
+            <>
+              <DisableDraftMode />
+              <VisualEditing />
+            </>
+          )}
         </Template>
-        <SanityLive />
-        {(await draftMode()).isEnabled && (
-          <>
-            <DisableDraftMode />
-            <VisualEditing />
-          </>
-        )}
       </body>
     </html>
   );
