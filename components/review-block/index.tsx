@@ -54,7 +54,7 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
               {titles && titles.length > 0 && (
                 <motion.div 
                   className='titles w-full text-center'
-                  key={index}  // Ensure unique key for each title
+                  key={`title-${index}`}  // Ensure unique key for each title
                   initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: -20, opacity: 0 }}

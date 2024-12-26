@@ -29,8 +29,8 @@ const FooterNav: React.FC<NavProps> = ({
 			<NavigationMenuList className='flex flex-wrap gap-y-2 lg:gap-x-10'>
         {data.items?.map((item: any, index: number) => (
           <NavigationMenuItem 
-            key={'header' + index}
-            id={'header' + index}
+            key={'footer' + index}
+            id={'footer' + index}
           >
             <Route data={item} className='flex'>
               <motion.div

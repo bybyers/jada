@@ -54,7 +54,7 @@ const ColumnBlock: React.FC<ColumnBlockType> = ({
           )}
            {rows && rows.map((row, index) => { 
             return (
-              <div key={index} className='w-full '>
+              <div key={`column-row-${index}`} className='w-full '>
                 {row._type === 'columnArray' ? (
                   <ColumnArray row={row as ColumnArrayType} />
                 ) : row._type === 'simpleText' ? (

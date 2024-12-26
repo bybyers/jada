@@ -86,7 +86,7 @@ const PageBuilderInput = (props: ArrayOfObjectsInputProps) => {
 							{props.schemaType.of.map((schema, index) => {
 								return (
 									<PreviewCard
-										key={index}
+										key={`preview-${index}`}
 										schema={schema}
 										onClick={() => onSelectItem(schema)}
 									/>
