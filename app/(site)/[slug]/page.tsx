@@ -1,10 +1,9 @@
 // Tools
 import { Metadata } from 'next'
 import { QueryParams, SanityDocument } from "next-sanity"
-import { sanityFetch } from "@/sanity/lib/fetch"
+import { sanityFetch } from "@/sanity/lib/live";
 import { notFound } from "next/navigation"
 import { client } from "@/sanity/lib/client"
-import { draftMode } from 'next/headers'
 
 // Types
 import { PageType } from "@/types/documents/page-type"
@@ -18,30 +17,25 @@ import Page from "@/components/page-single"
 import { urlFor } from "@/components/sanity-image/url"
 
 export async function generateStaticParams() {
-  const posts = await sanityFetch<SanityDocument[]>({
-    query: PagesQuery,
-    perspective: "published",
-    stega: false,
-  })
+  const posts = await client.fetch(PagesQuery);
 
-  return posts.map((post) => ({
-    slug: post.slug.current,
+  return posts.map((post: SanityDocument) => ({
+	slug: post?.slug?.current,
   }))
 }
 
 type Props = {
-	params: { slug: string }
+	params: Promise<QueryParams>
 }
 
 export const generateMetadata = async (props: Props): Promise<Metadata> => {
 	const { params } = props
 	const page = await client.fetch<PageType>(PageQuery, params)
 	const global = await client.fetch(SiteQuery)
-	const isDraftMode = draftMode().isEnabled
 
-	if (!page && !isDraftMode) {
-		return notFound()
-	}
+	if (!page) {
+    return notFound();
+  }
 
 	const result = {
 		noIndex: page?.seo?.noIndex ? true : false,
@@ -83,12 +77,14 @@ export const generateMetadata = async (props: Props): Promise<Metadata> => {
 
 
 
-export default async function SinglePage({ params }: { params: QueryParams }) {
-  const page = await sanityFetch<SanityDocument>({ query: PageQuery, params })
-	const isDraftMode = draftMode().isEnabled
+export default async function SinglePage({ params }: { params: Promise<QueryParams> }) {
+  const { data: page } = await sanityFetch({
+    query: PageQuery,
+    params: await params,
+  });
 	
-  if (!page && !isDraftMode) {
-    return notFound()
+  if (!page) {
+    return notFound();
   }
 
   return (

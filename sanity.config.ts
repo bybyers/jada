@@ -10,7 +10,7 @@ import {structureTool} from 'sanity/structure'
 import { media } from 'sanity-plugin-media'
 import { deskStructure } from '@/sanity/structure'
 import SpotlightLogo from '@/components/logo'
-import { locate } from '@/sanity/presentation/locate'
+import { resolve } from '@/sanity/presentation/resolve'
 import { defaultDocumentNode } from '@/sanity/lib/defaultDocumentNode'
 import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
 
@@ -55,10 +55,10 @@ export default defineConfig({
     media(),
     vercelDeployTool(),
     presentationTool({
-      locate,
+      resolve,
       previewUrl: {
-        draftMode: {
-          enable: '/api/draft',
+        previewMode: {
+          enable: '/api/draft-mode/enable',
         },
       },
     }),

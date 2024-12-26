@@ -2,6 +2,7 @@ import { groq } from 'next-sanity'
 import { pageNavQuery } from '../components/page-nav-query'
 import { imageQuery } from '../objects/image-query'
 import { routeQuery } from '../objects/route-query'
+import { defineQuery } from "next-sanity";
 
 export const PagesQuery = groq`*[_type == "page" && defined(slug.current)][]`
 
