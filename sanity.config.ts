@@ -12,7 +12,6 @@ import { deskStructure } from '@/sanity/structure'
 import SpotlightLogo from '@/components/logo'
 import { resolve } from '@/sanity/presentation/resolve'
 import { defaultDocumentNode } from '@/sanity/lib/defaultDocumentNode'
-import { vercelDeployTool } from 'sanity-plugin-vercel-deploy'
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import {apiVersion, dataset, projectId} from './sanity/env'
@@ -53,7 +52,6 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
     media(),
-    vercelDeployTool(),
     presentationTool({
       resolve,
       previewUrl: {
