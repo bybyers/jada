@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { fontSans } from "./fonts";
 import "./globals.css";
 import { cn } from "@/lib/utils"
