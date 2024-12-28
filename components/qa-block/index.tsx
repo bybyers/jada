@@ -90,7 +90,7 @@ const QaBlock: React.FC<QaBlockType> = ({
               </Accordion>
             </motion.div>
             <motion.div 
-              className='w-full lg:w-1/2 flex justify-center lg:justify-end items-center gap-16'
+              className='w-full lg:w-1/2 flex justify-center lg:justify-end items-start gap-16 relative'
               initial={{ 
                 opacity: 0,
                 scale: 0.95
@@ -107,7 +107,7 @@ const QaBlock: React.FC<QaBlockType> = ({
               }}
             >
               {cta && cta.active && (
-                <div className='mt-5 flex justify-center md:justify-start'>
+                <div className='mt-5 flex justify-center md:justify-start md:sticky md:top-1/2'>
                   <Route data={cta.route} className='flex'>
                     <motion.div
                       initial={{ 

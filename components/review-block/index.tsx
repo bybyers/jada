@@ -71,7 +71,7 @@ const ReviewBlock: React.FC<ReviewBlockType> = ({
               return (
                 <motion.div 
                   key={`review-${index}`} 
-                  className='review text-balance lg:max-w-sm 2xl:max-w-md'
+                  className='review flex-grow text-balance lg:max-w-sm 2xl:max-w-md'
                   initial={{ 
                     opacity: 0,
                     scale: 0.95
