@@ -35,7 +35,7 @@ const VideoArray: React.FC<VideoColumnArrayProps> = ({
           return (
             <motion.div 
               key={`video-column-${index}`} 
-              className={`mt-10 lg:mt-0 w-full ${columnLength < 3 ? 'max-w-xl 2xl:max-w-2xl' : 'max-w-sm px-5'} flex flex-col gap-y-8 content items-center`}
+              className={`mt-10 flex-grow lg:mt-0 w-full ${columnLength < 3 ? 'max-w-xl 2xl:max-w-2xl' : 'max-w-sm px-5'} flex flex-col gap-y-8 content items-center`}
               initial={{ 
                 opacity: 0,
                 scale: 0.95

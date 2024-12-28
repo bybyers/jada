@@ -78,7 +78,7 @@ const PriceBlock: React.FC<PriceBlockType> = ({
               const last = index === columns.length - 1
 
               return (
-                <div key={`column-${index}`} className='w-full max-w-md  px-5 md:px-16 py-5 md:py-10 first:rounded-tl-3xl md:first:rounded-bl-3xl first:rounded-tr-3xl md:first:rounded-tr-none last:rounded-tr-none md:last:rounded-tr-3xl last:rounded-br-3xl last:rounded-bl-3xl md:last:rounded-bl-none md:last:rounded-bl-0 border-[#c8a7f2]  first:border-t-2 md:border-t-2 border-b-2 first:border-r-2 md:first:border-r-0 border-l-2 last:border-r-2 md:last:border-r-2 shadow shadow-white'>
+                <div key={`column-${index}`} className='w-full flex-grow max-w-md  px-5 md:px-16 py-5 md:py-10 first:rounded-tl-3xl md:first:rounded-bl-3xl first:rounded-tr-3xl md:first:rounded-tr-none last:rounded-tr-none md:last:rounded-tr-3xl last:rounded-br-3xl last:rounded-bl-3xl md:last:rounded-bl-none md:last:rounded-bl-0 border-[#c8a7f2]  first:border-t-2 md:border-t-2 border-b-2 first:border-r-2 md:first:border-r-0 border-l-2 last:border-r-2 md:last:border-r-2 shadow shadow-white'>
                   <div className='w-full h-full flex flex-col items-center justify-between gap-y-2'>
                     <div className='price-content'>
                       <div className='space-y-5'>

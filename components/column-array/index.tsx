@@ -36,7 +36,7 @@ const ColumnArray: React.FC<ColumnArrayProps> = ({
           return (
             <motion.div 
               key={`column-${index}`} 
-              className='mt-10 lg:mt-0 w-full lg:max-w-sm 2xl:max-w-md flex flex-col gap-y-8 content items-center '
+              className='flex-grow mt-10 lg:mt-0 w-full lg:max-w-sm 2xl:max-w-md flex flex-col gap-y-8 content items-center '
               initial={{ 
                 opacity: 0,
                 scale: 0.95
